@@ -338,18 +338,74 @@
     const polaBody = document.getElementById('pola-tbody');
     const polaN = document.getElementById('pola-n');
     if (polaBtn && polaBody && polaN) {
+      let sliderName = null;
+      const findSlider = () => {
+        try {
+          if (!window.ggbApplet) return null;
+          const candidates = ['n','N','k','t'];
+          for (const c of candidates) { if (window.ggbApplet.exists && window.ggbApplet.exists(c)) return c; }
+          if (window.ggbApplet.getObjectNumber && window.ggbApplet.getObjectName && window.ggbApplet.getObjectType) {
+            const count = window.ggbApplet.getObjectNumber();
+            for (let i = 0; i < count; i++) {
+              const name = window.ggbApplet.getObjectName(i);
+              const type = window.ggbApplet.getObjectType(name);
+              if (type && type.toLowerCase() === 'numeric') return name;
+            }
+          }
+        } catch(_){}
+        return null;
+      };
+
+      const getRowsFromSlider = () => {
+        try {
+          if (window.ggbApplet && sliderName) {
+            const val = window.ggbApplet.getValue(sliderName);
+            const n = Math.max(1, Math.round(val));
+            return n;
+          }
+        } catch(_){}
+        return Math.max(1, parseInt(polaN.value || '1'));
+      };
+
       const renderRows = () => {
-        const n = Math.max(1, parseInt(polaN.value || '1'));
+        const n = getRowsFromSlider();
+        polaN.value = String(n);
         polaBody.innerHTML = '';
         for (let i = 1; i <= n; i++) {
           const tr = document.createElement('tr');
           const tdI = document.createElement('td'); tdI.className = 'py-2 border-b border-gray-300'; tdI.textContent = String(i);
-          const tdR = document.createElement('td'); tdR.className = 'py-2 border-b border-gray-300'; tdR.textContent = '4 + (n-1)×3';
+          const tdR = document.createElement('td'); tdR.className = 'py-2 border-b border-gray-300'; tdR.innerHTML = '$4+(n-1)\\times 3$';
           const tdB = document.createElement('td'); tdB.className = 'py-2 border-b border-gray-300'; tdB.textContent = String(4 + (i - 1) * 3);
           tr.appendChild(tdI); tr.appendChild(tdR); tr.appendChild(tdB);
           polaBody.appendChild(tr);
         }
+        renderMathJax(polaBody);
       };
+
+      sliderName = findSlider();
+      // Try to listen to GeoGebra updates if available, fallback to polling
+      try {
+        if (window.ggbApplet && window.ggbApplet.registerUpdateListener) {
+          window.onGgbUpdatePola = function(updatedName){
+            if (!sliderName) sliderName = findSlider();
+            if (!sliderName || !updatedName) { renderRows(); return; }
+            if (updatedName === sliderName) renderRows();
+          };
+          window.ggbApplet.registerUpdateListener('onGgbUpdatePola');
+        }
+      } catch(_){}
+      // Polling fallback
+      let lastVal = null;
+      const poll = setInterval(() => {
+        if (!document.body.contains(polaBody)) { clearInterval(poll); return; }
+        if (!sliderName) sliderName = findSlider();
+        if (!sliderName || !window.ggbApplet) return;
+        try {
+          const v = Math.round(window.ggbApplet.getValue(sliderName));
+          if (v !== lastVal) { lastVal = v; renderRows(); }
+        } catch(_){}
+      }, 500);
+
       polaBtn.addEventListener('click', renderRows);
       renderRows();
     }
