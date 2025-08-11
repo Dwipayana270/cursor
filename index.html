@@ -5,55 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-Modul Matematika - Bab 4 & 5</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+
     <script>
       window.MathJax = {
-        loader: { load: ['input/asciimath', 'output/chtml', 'ui/menu'] },
-        asciimath: { delimiters: [['$', '$'], ['`', '`']] },
-        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        loader: { load: ["input/asciimath", "output/chtml", "ui/menu"] },
+        asciimath: { delimiters: [["$", "$"], ["`", "`"]] },
+        tex: { inlineMath: [["$", "$"], ["\\(", "\\)"]] },
       };
     </script>
   </head>
   <body class="p-4 md:p-8">
     <div class="max-w-6xl mx-auto">
-      <!-- Header -->
       <header class="neo-brutal-nohover rounded-brutal p-6 mb-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <div class="text-center md:text-left mb-4 md:mb-0">
-            <h1 class="text-4xl md:text-5xl font-black mb-2 text-blue-600">
-              E-MODUL MATEMATIKA
-            </h1>
-            <p class="text-xl font-bold">
-              Bentuk Aljabar, Kesebangunan, dan Data dan Diagram
-            </p>
+            <h1 class="text-4xl md:text-5xl font-black mb-2 text-blue-600">E-MODUL MATEMATIKA</h1>
+            <p class="text-xl font-bold">Bentuk Aljabar, Kesebangunan, dan Data dan Diagram</p>
             <p class="text-lg">E-modul berbasis TaRL</p>
           </div>
           <div class="flex space-x-4">
-            <button onclick="showProgress()" class="btn-brutal text-white bg-blue-400">
-              PROGRESS
-            </button>
+            <button onclick="showProgress()" class="btn-brutal text-white bg-blue-400">PROGRESS</button>
             <button onclick="confirmReset()" class="btn-reset">RESET</button>
-            <button onclick="showAbout()" class="btn-brutal text-black">
-              TENTANG
-            </button>
+            <button onclick="showAbout()" class="btn-brutal text-black">TENTANG</button>
           </div>
         </div>
       </header>
 
-      <!-- Main Content -->
       <main id="main-content">
-        <!-- Home Screen -->
         <div id="home-screen" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Bab 4 Card -->
           <div class="neo-brutal-blue rounded-brutal p-8 text-center">
             <h2 class="text-3xl font-black mb-4">BAB 4</h2>
             <h3 class="text-2xl font-bold mb-6">Bentuk Aljabar</h3>
@@ -62,11 +43,9 @@
               <p class="text-lg">Pelajari variabel, konstanta, dan operasi aljabar</p>
             </div>
             <div id="bab4-status" class="mb-4 font-bold"></div>
-            <button onclick="startBab(4)" class="btn-brutal bg-white text-black w-full py-4 text-xl">
-              MULAI BELAJAR
-            </button>
+            <button onclick="startBab(4)" class="btn-brutal bg-white text-black w-full py-4 text-xl">MULAI BELAJAR</button>
           </div>
-          <!-- Bab 5 Card -->
+
           <div class="neo-brutal-green rounded-brutal p-8 text-center">
             <h2 class="text-3xl font-black mb-4">BAB 5</h2>
             <h3 class="text-2xl font-bold mb-6">Kesebangunan</h3>
@@ -75,11 +54,9 @@
               <p class="text-lg">Pelajari hubungan antar sudut dan kesebangunan bangun datar</p>
             </div>
             <div id="bab5-status" class="mb-4 font-bold"></div>
-            <button onclick="startBab(5)" class="btn-brutal bg-white text-black w-full py-4 text-xl">
-              MULAI BELAJAR
-            </button>
+            <button onclick="startBab(5)" class="btn-brutal bg-white text-black w-full py-4 text-xl">MULAI BELAJAR</button>
           </div>
-          <!-- Bab 6 Card -->
+
           <div class="neo-brutal-red rounded-brutal p-8 text-center text-white">
             <h2 class="text-3xl font-black mb-4">BAB 6</h2>
             <h3 class="text-2xl font-bold mb-6">Data dan Diagram</h3>
@@ -88,40 +65,29 @@
               <p class="text-lg">Pelajari statistika dan penyajian data</p>
             </div>
             <div id="bab6-status" class="mb-4 font-bold"></div>
-            <button onclick="startBab(6)" class="btn-brutal bg-white text-black w-full py-4 text-xl">
-              MULAI BELAJAR
-            </button>
+            <button onclick="startBab(6)" class="btn-brutal bg-white text-black w-full py-4 text-xl">MULAI BELAJAR</button>
           </div>
         </div>
 
-        <!-- Placement Test Screen -->
         <div id="placement-screen" class="hidden">
           <div class="neo-brutal-nohover rounded-brutal p-8 mb-8">
             <h2 class="text-3xl font-black mb-6 text-center">TES PENEMPATAN</h2>
-            <p class="text-xl mb-8 text-center">
-              Jawab pertanyaan untuk menentukan level pembelajaran Anda
-            </p>
+            <p class="text-xl mb-8 text-center">Jawab pertanyaan untuk menentukan level pembelajaran Anda</p>
             <div id="placement-questions" class="space-y-8"></div>
             <div class="flex justify-center mt-8">
-              <button id="submit-placement" onclick="submitPlacement()" class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">
-                KIRIM JAWABAN
-              </button>
+              <button id="submit-placement" onclick="submitPlacement()" class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">KIRIM JAWABAN</button>
             </div>
           </div>
         </div>
 
-        <!-- Learning Screen -->
         <div id="learning-screen" class="hidden">
           <div class="flex flex-col md:flex-row gap-8">
-            <!-- Navigation Panel -->
             <div class="md:w-1/4">
               <div class="neo-brutal-nohover rounded-brutal p-6 sticky top-8">
                 <h3 class="text-2xl font-black mb-4">NAVIGASI</h3>
                 <div class="space-y-4">
-                  <button onclick="showHome()" class="btn-brutal bg-gray-200 w-full py-3 text-lg">
-                    ← KEMBALI
-                  </button>
-                  <div id="level-indicator" class="neo-brutal-yellow p-4 rounded-lg text-center font-bold text-lg"></div>
+                  <button onclick="showHome()" class="btn-brutal bg-gray-200 w-full py-3 text-lg">← BERANDA</button>
+                  <div id="level-indicator" class="bg-yellow-400 p-4 rounded-lg text-center font-bold text-lg"></div>
                   <div class="mt-6">
                     <h4 class="font-bold mb-2">PROGRESS</h4>
                     <div class="progress-bar">
@@ -129,7 +95,6 @@
                     </div>
                     <p id="progress-text" class="text-center mt-2 font-bold">0%</p>
                   </div>
-                  <!-- Journey Map -->
                   <div class="mt-8">
                     <h4 class="font-bold mb-4">PETA PERJALANAN</h4>
                     <div id="journey-map" class="space-y-2"></div>
@@ -137,67 +102,49 @@
                 </div>
               </div>
             </div>
-
-            <!-- Content Panel -->
             <div class="md:w-3/4">
               <div id="content-area" class="neo-brutal-nohover rounded-brutal p-8"></div>
-              <!-- Navigation buttons for levels -->
-              <div class="flex justify-between mt-6">
-                <button onclick="previousLevel()" class="btn-brutal bg-gray-200 px-6 py-3">← SEBELUMNYA</button>
-                <button onclick="nextLevel()" class="btn-brutal neo-brutal-yellow text-black px-6 py-3">SELANJUTNYA →</button>
-              </div>
             </div>
           </div>
         </div>
 
-        <!-- Evaluation Screen -->
         <div id="evaluation-screen" class="hidden">
           <div class="neo-brutal-nohover rounded-brutal p-8 mb-8">
             <h2 class="text-3xl font-black mb-6 text-center">EVALUASI AKHIR</h2>
             <p class="text-xl mb-8 text-center">Kerjakan 5 soal berikut untuk menguji pemahaman Anda</p>
             <div id="evaluation-questions" class="space-y-8"></div>
             <div class="flex justify-center mt-8">
-              <button id="submit-evaluation" onclick="submitEvaluation()" class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">
-                KIRIM JAWABAN
-              </button>
+              <button id="submit-evaluation" onclick="submitEvaluation()" class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">KIRIM JAWABAN</button>
             </div>
+            <div class="h-12"></div>
             <div id="evaluation-result" class="hidden mt-8 text-center"></div>
           </div>
         </div>
 
-        <!-- Progress Screen -->
         <div id="progress-screen" class="hidden">
           <div class="neo-brutal-nohover rounded-brutal p-8">
             <h2 class="text-3xl font-black mb-6 text-center">PROGRESS BELAJAR</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <!-- Bab 4 Progress -->
               <div class="neo-brutal-blue rounded-brutal p-6">
                 <h3 class="text-2xl font-black mb-4">BAB 4: Bentuk Aljabar</h3>
                 <div id="bab4-progress" class="space-y-4"></div>
               </div>
-              <!-- Bab 5 Progress -->
               <div class="neo-brutal-green rounded-brutal p-6">
                 <h3 class="text-2xl font-black mb-4">BAB 5: Kesebangunan</h3>
                 <div id="bab5-progress" class="space-y-4"></div>
               </div>
-              <!-- Bab 6 Progress -->
               <div class="neo-brutal-red rounded-brutal p-6 text-white">
                 <h3 class="text-2xl font-black mb-4">BAB 6: Data dan Diagram</h3>
                 <div id="bab6-progress" class="space-y-4"></div>
               </div>
             </div>
             <div class="flex justify-center mt-8 space-x-4">
-              <button onclick="confirmReset()" class="btn-reset bg-red-500 text-white px-8 py-3 text-xl">
-                RESET PROGRESS
-              </button>
-              <button onclick="showHome()" class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">
-                KEMBALI
-              </button>
+              <button onclick="confirmReset()" class="btn-reset bg-red-500 text-white px-8 py-3 text-xl">RESET PROGRESS</button>
+              <button onclick="showHome()" class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">KEMBALI</button>
             </div>
           </div>
         </div>
 
-        <!-- About Screen -->
         <div id="about-screen" class="hidden">
           <div class="neo-brutal-nohover rounded-brutal p-8">
             <h2 class="text-3xl font-black mb-6 text-center">TENTANG E-MODUL INI</h2>
@@ -207,9 +154,7 @@
                 <div class="space-y-4">
                   <div>
                     <h4 class="text-xl font-bold">Pengembang E-Modul</h4>
-                    <p class="mt-2">
-                      E-modul ini dikembangkan oleh I Made Indra Adhi Wikanta untuk meningkatkan kualitas pembelajaran matematika di Indonesia.
-                    </p>
+                    <p class="mt-2">E-modul ini dikembangkan oleh I Made Indra Adhi Wikanta untuk meningkatkan kualitas pembelajaran matematika di Indonesia.</p>
                   </div>
                 </div>
               </div>
@@ -218,9 +163,7 @@
                 <div class="space-y-4">
                   <div>
                     <h4 class="text-xl font-bold">Deskripsi</h4>
-                    <p class="mt-2">
-                      E-modul ini dirancang dengan pendekatan Teaching at the Right Level (TaRL) untuk membantu siswa belajar matematika sesuai dengan kemampuan mereka.
-                    </p>
+                    <p class="mt-2">E-modul ini dirancang dengan pendekatan Teaching at the Right Level (TaRL) untuk membantu siswa belajar matematika sesuai dengan kemampuan mereka.</p>
                   </div>
                   <div>
                     <h4 class="text-xl font-bold">Fitur</h4>
@@ -237,16 +180,16 @@
               </div>
             </div>
             <div class="flex justify-center mt-8">
-              <button onclick="showHome()" class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">
-                KEMBALI
-              </button>
+              <button onclick="showHome()" class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">KEMBALI</button>
             </div>
           </div>
         </div>
       </main>
     </div>
 
-    <script src="assets/js/app.js"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script src="/assets/js/content.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
   </body>
 </html>
