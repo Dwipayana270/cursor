@@ -427,6 +427,10 @@
     document.getElementById('learning-screen').classList.add('hidden');
     document.getElementById('evaluation-screen').classList.remove('hidden');
 
+    // Always hide and clear previous evaluation result on load
+    const evalResult = document.getElementById('evaluation-result');
+    if (evalResult) { evalResult.classList.add('hidden'); evalResult.innerHTML = ''; }
+
     const questions = window.evaluationTests[bab];
     const container = document.getElementById('evaluation-questions');
     container.innerHTML = '';
