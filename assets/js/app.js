@@ -241,7 +241,16 @@
     }
 
     const contentArea = document.getElementById('content-area');
+    // skeleton placeholder while loading
     contentArea.innerHTML = '';
+    const skeletonWrap = document.createElement('div');
+    skeletonWrap.className = 'space-y-4 mb-8';
+    const sk1 = document.createElement('div'); sk1.className = 'skeleton skeleton-title';
+    const sk2 = document.createElement('div'); sk2.className = 'skeleton skeleton-line';
+    const sk3 = document.createElement('div'); sk3.className = 'skeleton skeleton-line';
+    const skCard = document.createElement('div'); skCard.className = 'skeleton skeleton-card';
+    skeletonWrap.appendChild(sk1); skeletonWrap.appendChild(sk2); skeletonWrap.appendChild(sk3); skeletonWrap.appendChild(skCard);
+    contentArea.appendChild(skeletonWrap);
 
     const title = document.createElement('h2');
     title.className = 'text-3xl font-black mb-2';
@@ -256,6 +265,8 @@
 
     const html = await fetch(cfg.partial).then(r=>r.text());
     contentBox.innerHTML = html;
+    // remove skeleton
+    contentArea.innerHTML = '';
 
     const exerciseCard = document.createElement('div');
     exerciseCard.className = 'neo-brutal-red rounded-brutal p-6 mb-8';
