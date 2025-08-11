@@ -1,0 +1,51 @@
+<h2 class="text-3xl font-black mb-2">Level Lanjut: Aplikasi Kontekstual - Bab 5</h2>
+<p class="text-xl mb-8">Menerapkan konsep kesebangunan dalam situasi dunia nyata</p>
+
+<div class="space-y-6">
+  <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white border-4 border-black rounded-lg p-6">
+    <h3 class="text-2xl font-bold mb-4">🗺️ Kesebangunan dalam Pemetaan</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-white/20 backdrop-blur-sm p-4 rounded border-2 border-white/30">
+        <h4 class="font-bold mb-2">📏 Peta dan Jarak Sebenarnya</h4>
+        <p class="math-symbol">Skala = 1 : n</p>
+      </div>
+      <div class="bg-white/20 backdrop-blur-sm p-4 rounded border-2 border-white/30">
+        <h4 class="font-bold mb-2">🏗️ Denah Bangunan</h4>
+        <p class="math-symbol">Ukuran denah = ukuran sebenarnya × skala</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gradient-to-r from-teal-500 to-cyan-600 text-white border-4 border-black rounded-lg p-6">
+    <h3 class="text-2xl font-bold mb-4">📸 Kesebangunan dalam Fotografi</h3>
+    <div class="bg-white/20 backdrop-blur-sm p-4 rounded border-2 border-white/30">
+      <h4 class="font-bold mb-2">📷 Ukuran Foto</h4>
+      <p>3R, 4R, 5R tetap sebangun</p>
+    </div>
+  </div>
+
+  <div class="bg-gradient-to-r from-orange-500 to-red-600 text-white border-4 border-black rounded-lg p-6">
+    <h3 class="text-2xl font-bold mb-4">🌡️ Pengukuran Tinggi</h3>
+    <div class="bg-white/20 backdrop-blur-sm p-4 rounded border-2 border-white/30">
+      <p class="math-symbol">h = (t × b) ÷ s</p>
+      <div class="mt-3 p-3 bg-black/20 rounded">Contoh: 2m, 3m, 45m → 30m</div>
+    </div>
+  </div>
+
+  <div class="neo-brutal-red rounded-brutal p-6">
+    <h3 class="text-2xl font-bold mb-4">LATIHAN</h3>
+    <p class="text-lg mb-6">Skala 1 : 100. Jarak denah 12 cm. Jarak sebenarnya adalah...</p>
+    <div class="space-y-3">
+      <label class="flex items-center space-x-3 cursor-pointer">
+        <input type="radio" name="exercise" data-correct="true" class="w-5 h-5">
+        <span>12 m</span>
+      </label>
+      <label class="flex items-center space-x-3 cursor-pointer">
+        <input type="radio" name="exercise" data-correct="false" class="w-5 h-5">
+        <span>120 m</span>
+      </label>
+    </div>
+    <button onclick="checkExercise()" class="btn-brutal bg-white text-black mt-6 px-6 py-3">CEK JAWABAN</button>
+    <div id="exercise-result" class="mt-4 hidden"></div>
+  </div>
+</div>
