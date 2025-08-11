@@ -65,6 +65,14 @@ body { font-family: "Rubik", sans-serif; background-color: #f0f0f0; }
 .notification { position: fixed; top: 1rem; right: 1rem; z-index: 1000; padding: 1rem; border-radius: 16px; font-weight: bold; animation: slideIn 0.3s ease-out; }
 @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; }}
 
+/* Skeleton shimmer loading */
+.skeleton { position: relative; overflow: hidden; background-color: #e5e7eb; border-radius: 8px; }
+.skeleton::after { content: ""; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0)); animation: shimmer 1.2s infinite; }
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+.skeleton-line { height: 14px; margin: 8px 0; }
+.skeleton-title { height: 28px; margin: 8px 0 16px; border-radius: 10px; }
+.skeleton-card { height: 160px; border: 4px solid #000; box-shadow: 8px 8px 0 #000; border-radius: 16px; background-color: #fff; }
+
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .journey-step:not(:last-child):after { left: 15px; }
@@ -76,4 +84,11 @@ body { font-family: "Rubik", sans-serif; background-color: #f0f0f0; }
   .neo-brutal, .neo-brutal-nohover, .neo-brutal-yellow, .neo-brutal-blue, .neo-brutal-red, .neo-brutal-green { box-shadow: 4px 4px 0 #000; }
   /* Disable sticky on mobile to avoid awkward scroll locking */
   .sticky { position: static; }
+  /* Reduce generous desktop spacings on mobile */
+  .p-8 { padding: 1rem !important; }
+  .p-6 { padding: 0.75rem !important; }
+  .mb-8 { margin-bottom: 1rem !important; }
+  .mt-8 { margin-top: 1rem !important; }
+  .gap-8 { gap: 1rem !important; }
+  .space-y-8 > * + * { margin-top: 1rem !important; }
 }
