@@ -17,6 +17,11 @@ body { font-family: "Rubik", sans-serif; background-color: #f0f0f0; }
 @media (hover: hover) and (pointer: fine) {
   .btn-brutal:hover { transform: translate(-4px, -4px); box-shadow: 8px 8px 0 #000; }
 }
+/* Make yellow buttons consistent with other buttons (no default card shadow) */
+.btn-brutal.neo-brutal-yellow { background-color: #ffd23f; color: #000; box-shadow: none; }
+@media (hover: hover) and (pointer: fine) {
+  .btn-brutal.neo-brutal-yellow:hover { box-shadow: 8px 8px 0 #000; }
+}
 .progress-bar { height: 24px; background-color: #e0e0e0; border: 3px solid #000; border-radius: 12px; overflow: hidden; }
 .progress-fill { height: 100%; background-color: #06d6a0; transition: width 0.5s ease; }
 .math-symbol { font-family: "Times New Roman", serif; font-weight: bold; }
