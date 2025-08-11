@@ -338,7 +338,7 @@
 
   function checkExercise() {
     const selected = document.querySelector('input[name="exercise"]:checked');
-    if (!selected) { alert('Pilih jawaban terlebih dahulu!'); return; }
+    if (!selected) { alert('Pilih jawaban dulu ya!'); return; }
     const answerIndex = parseInt(selected.value);
     let exercise;
     if (currentLevel === 'dasar') exercise = window.contentData.dasar[currentBab].exercise;
@@ -349,7 +349,7 @@
 
     if (exercise.options[answerIndex].correct) {
       resultDiv.className = 'neo-brutal-green rounded-brutal p-4 mt-4';
-      const p = document.createElement('p'); p.className = 'font-bold text-lg'; p.textContent = 'Jawaban BENAR! 🎉';
+      const p = document.createElement('p'); p.className = 'font-bold text-lg'; p.textContent = 'Mantap! Jawaban kamu benar 🎉';
       resultDiv.appendChild(p);
       const progress = getProgress();
       if (!progress[currentBab]) progress[currentBab] = {};
@@ -359,7 +359,7 @@
       updateJourneyMap(currentBab, currentLevel);
     } else {
       resultDiv.className = 'neo-brutal-red rounded-brutal p-4 mt-4 text-white';
-      const p = document.createElement('p'); p.className = 'font-bold text-lg'; p.textContent = 'Jawaban SALAH. Coba lagi! 🤔';
+      const p = document.createElement('p'); p.className = 'font-bold text-lg'; p.textContent = 'Masih belum tepat. Coba lagi ya! 🤔';
       resultDiv.appendChild(p);
     }
     resultDiv.classList.remove('hidden');
@@ -431,9 +431,9 @@
     resultDiv.innerHTML = '';
 
     let resultClass = '', resultText = '', resultEmoji = '';
-    if (percentage >= 80) { resultClass = 'neo-brutal-green rounded-brutal p-6'; resultText = 'LUAR BIASA! Anda telah menguasai materi ini dengan sangat baik.'; resultEmoji = '🎉👏'; }
-    else if (percentage >= 60) { resultClass = 'neo-brutal-yellow rounded-brutal p-6'; resultText = 'BAIK! Anda telah memahami materi ini dengan cukup baik.'; resultEmoji = '👍😊'; }
-    else { resultClass = 'neo-brutal-red rounded-brutal p-6 text-white'; resultText = 'Belajar lagi! Anda perlu memperdalam pemahaman materi ini.'; resultEmoji = '📚💪'; }
+    if (percentage >= 80) { resultClass = 'neo-brutal-green rounded-brutal p-6'; resultText = 'Hebat! Kamu menguasai materi ini dengan sangat baik.'; resultEmoji = '🎉👏'; }
+    else if (percentage >= 60) { resultClass = 'neo-brutal-yellow rounded-brutal p-6'; resultText = 'Keren! Kamu sudah cukup paham materinya.'; resultEmoji = '👍😊'; }
+    else { resultClass = 'neo-brutal-red rounded-brutal p-6 text-white'; resultText = 'Ayo semangat! Kamu perlu sedikit lagi memahami materi ini.'; resultEmoji = '📚💪'; }
 
     resultDiv.className = resultClass;
     const emoji = document.createElement('div'); emoji.className = 'text-4xl mb-4'; emoji.textContent = resultEmoji;
@@ -441,7 +441,7 @@
     const p1 = document.createElement('p'); p1.className = 'text-xl mb-2'; p1.textContent = `Skor: ${score}/${questions.length} (${percentage}%)`;
     const p2 = document.createElement('p'); p2.className = 'text-lg'; p2.textContent = resultText;
     const actions = document.createElement('div'); actions.className = 'mt-6 flex justify-center space-x-4';
-    const homeBtn = document.createElement('button'); homeBtn.className = 'btn-brutal neo-brutal-yellow text-black px-6 py-3'; homeBtn.textContent = 'Beranda'; homeBtn.addEventListener('click', showHome);
+    const homeBtn = document.createElement('button'); homeBtn.className = 'btn-brutal neo-brutal-yellow text-black px-6 py-3'; homeBtn.textContent = 'Kembali ke Beranda'; homeBtn.addEventListener('click', showHome);
     actions.appendChild(homeBtn);
 
     resultDiv.appendChild(emoji); resultDiv.appendChild(h3); resultDiv.appendChild(p1); resultDiv.appendChild(p2); resultDiv.appendChild(actions);
@@ -585,7 +585,7 @@
       if (resultDiv) {
         resultDiv.classList.remove('hidden');
         resultDiv.className = 'mt-4 text-center font-bold text-lg ' + (correctCount === allButtons.length ? 'text-green-600' : 'text-yellow-600');
-        resultDiv.textContent = correctCount === allButtons.length ? '🎉 Semua benar! Anda siap untuk Level Menengah!' : `Benar ${correctCount}/${allButtons.length}. Terus berlatih!`;
+        resultDiv.textContent = correctCount === allButtons.length ? '🎉 Semua benar! Kamu siap ke Level Menengah!' : `Benar ${correctCount}/${allButtons.length}. Terus berlatih!`;
       }
     }
   }
@@ -595,7 +595,7 @@
     const textarea = container.querySelector('textarea');
     const feedbackDiv = container.querySelector('.feedback');
     const userAnswer = (textarea?.value || '').trim();
-    if (!userAnswer) { alert('Silakan isi jawaban terlebih dahulu!'); return; }
+    if (!userAnswer) { alert('Silakan isi jawaban dulu ya!'); return; }
 
     feedbackDiv.classList.remove('hidden');
     feedbackDiv.innerHTML = '';
