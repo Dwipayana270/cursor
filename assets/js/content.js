@@ -1,5 +1,4 @@
 // Content mapping to external HTML partials (no HTML strings here)
-
 const contentData = {
   dasar: {
     4: {
@@ -49,7 +48,7 @@ const contentData = {
     title: "Level Menengah: Konsep Inti Matematika",
     description: "Mempelajari Bentuk Aljabar, Kesebangunan, dan Data & Diagram",
     chapters: [
-      { id: 4, title: "Bab 4: Bentuk Aljabar", description: "Bentuk aljajbt", partial: "/partials/menengah/bab4.html" },
+      { id: 4, title: "Bab 4: Bentuk Aljabar", description: "Bentuk aljabar", partial: "/partials/menengah/bab4.html" },
       { id: 5, title: "Bab 5: Kesebangunan", description: "Kesebangunan", partial: "/partials/menengah/bab5.html" },
       { id: 6, title: "Bab 6: Data dan Diagram", description: "Data dan Diagram", partial: "/partials/menengah/bab6.html" },
     ],
@@ -82,7 +81,6 @@ const contentData = {
     },
   },
 };
-
 const placementTests = {
   4: [
     { question: "Manakah operasi perkalian yang sesuai dengan 3 + 3 + 3 + 3 + 3?", options: [ { text: "5 x 3", correct: true }, { text: "3 x 5", correct: false }, { text: "5 x 5", correct: false }, { text: "3 : 5", correct: false } ] },
@@ -90,10 +88,10 @@ const placementTests = {
     { question: "Bentuk yang sama dengan 7 x 2 - 7 x 6 adalah …", options: [ { text: "7 x 2 + 7x 6", correct: false }, { text: "2 x (7 - 6)", correct: false }, { text: "7 x (2 - 6)", correct: true }, { text: "6 x 7", correct: false } ] },
     { question: "FPB dari 24 dan 12 adalah …", options: [ { text: "12", correct: true }, { text: "24", correct: false }, { text: "2", correct: false }, { text: "6", correct: false } ] },
     { question: "5 x (-2) = …", options: [ { text: "-7", correct: false }, { text: "10", correct: false }, { text: "-10", correct: true }, { text: "7", correct: false } ] },
-    { question: "-½ + 4 = …", options: [ { text: "¼", correct: false }, { text: "2/4", correct: false }, { text: "¾", correct: true }, { text: "1", correct: false } ] },
+    { question: "-½ + 4 = …", options: [ { text: "¼", correct: false }, { text: "2/4", correct: false }, { text: "7/2", correct: true }, { text: "1", correct: false } ] },
   ],
   5: [
-    { question: "DIketahui sudut a dan b saling berpenyiku, a = 30 derajat, berapakah b?", options: [ { text: "50", correct: false }, { text: "60", correct: true }, { text: "70", correct: false }, { text: "80", correct: false } ] },
+    { question: "Diketahui sudut a dan b saling berpenyiku, a = 30 derajat, berapakah b?", options: [ { text: "50", correct: false }, { text: "60", correct: true }, { text: "70", correct: false }, { text: "80", correct: false } ] },
     { question: "Diketahui sudut p dan q saling berpelurus, p = 20 derajat, berapakah q?", options: [ { text: "140", correct: false }, { text: "150", correct: false }, { text: "160", correct: true }, { text: "170", correct: false } ] },
     { question: "Bentuk yang senilai dengan ⅔ adalah…", options: [ { text: "6/9", correct: true }, { text: "⅓", correct: false }, { text: "2/7", correct: false }, { text: "4/3", correct: false } ] },
     { question: "FPB dari 8 dan 14 adalah …", options: [ { text: "2", correct: true }, { text: "3", correct: false }, { text: "4", correct: false }, { text: "5", correct: false } ] },
@@ -104,10 +102,9 @@ const placementTests = {
     { question: "½ + ¼ + ¼ = …", options: [ { text: "⅔", correct: false }, { text: "¾", correct: false }, { text: "1", correct: true }, { text: "2", correct: false } ] },
     { question: "Bentuk persen dari ⅖ adalah …", options: [ { text: "30", correct: false }, { text: "40", correct: true }, { text: "50", correct: false }, { text: "60", correct: false } ] },
     { question: "Diketahui semua siswa memilih satu jenis buah yang berbeda, 12 siswa suka apel, 14 suka jeruk, dan 11 suka mangga. Berapakah jumlah siswa?", options: [ { text: "26", correct: false }, { text: "25", correct: false }, { text: "36", correct: false }, { text: "37", correct: true } ] },
-    { question: "Diketahui total siswa kelas D sebanyak 29, banyak siswa laki-laki 14 siswa. Berapakah banyak siswi perempuan?", options: [ { text: "43", correct: false }, { text: "14", correct: false }, { text: "15", correct: true }, { text: "14", correct: false } ] },
+    { question: "Diketahui total siswa kelas D sebanyak 29, banyak siswa laki-laki 14 siswa. Berapakah banyak siswi perempuan?", options: [ { text: "43", correct: false }, { text: "14", correct: false }, { text: "15", correct: true }, { text: "13", correct: false } ] },
   ],
 };
-
 const evaluationTests = {
   4: [
     { question: "Sederhanakan bentuk aljabar: (2x + 3y) + (4x - 2y)", options: [ { text: "6x + y", correct: true }, { text: "6x + 5y", correct: false }, { text: "2x + y", correct: false }, { text: "2x + 5y", correct: false } ] },
@@ -117,7 +114,7 @@ const evaluationTests = {
     { question: "Sebuah persegi panjang memiliki panjang (2x + 3) cm dan lebar (x - 1) cm. Luasnya adalah...", options: [ { text: "2x² + x - 3", correct: true }, { text: "2x² + 5x - 3", correct: false }, { text: "3x² + 2x - 3", correct: false }, { text: "2x² - x - 3", correct: false } ] },
   ],
   5: [
-    { question: "Dua segitiga ABC dan PQR sebangun. Jika AB = 6 cm, PQ = 9 cm, dan BC = 8 cm, panjang QR adalah...", options: [ { text: "10 cm", correct: false }, { text: "12 cm", correct: true }, { text: "14 cm", correct: false }, { text: "16 cm", correct: false } ] },
+    { question: "Dua segitiga ABC dan PQR sebangun. Jika AB = 6 cm, PQ = 9 cm, dan BC = 8 cm, panjang QR adalah...", options: [ { text: "10 cm", correct: false }, { text: "12 cm", correct: false }, { text: "16/3 cm", correct: true }, { text: "16 cm", correct: false } ] },
     { question: "Sebuah foto berukuran 4 cm × 6 cm akan diperbesar menjadi sebangun dengan ukuran 12 cm × ... cm", options: [ { text: "16 cm", correct: false }, { text: "18 cm", correct: true }, { text: "20 cm", correct: false }, { text: "24 cm", correct: false } ] },
     { question: "Pada segitiga sebangun, perbandingan sisi-sisi yang bersesuaian adalah 3:5. Jika keliling segitiga pertama 24 cm, keliling segitiga kedua adalah...", options: [ { text: "30 cm", correct: false }, { text: "35 cm", correct: false }, { text: "40 cm", correct: true }, { text: "45 cm", correct: false } ] },
     { question: "Sebuah peta memiliki skala 1:250.000. Jarak dua kota di peta 8 cm, jarak sebenarnya adalah...", options: [ { text: "20 km", correct: true }, { text: "25 km", correct: false }, { text: "30 km", correct: false }, { text: "35 km", correct: false } ] },
@@ -131,7 +128,6 @@ const evaluationTests = {
     { question: "Jangkauan dari data 12, 15, 18, 22, 25, 28, 30 adalah...", options: [ { text: "12", correct: false }, { text: "16", correct: false }, { text: "18", correct: true }, { text: "20", correct: false } ] },
   ],
 };
-
 window.contentData = contentData;
 window.placementTests = placementTests;
 window.evaluationTests = evaluationTests;
