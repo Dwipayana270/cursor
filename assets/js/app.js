@@ -333,6 +333,27 @@
     contentArea.appendChild(exerciseCard);
     contentArea.appendChild(nav);
 
+    // attach dynamic table logic if present (Bab 4 menengah)
+    const polaBtn = document.getElementById('pola-generate');
+    const polaBody = document.getElementById('pola-tbody');
+    const polaN = document.getElementById('pola-n');
+    if (polaBtn && polaBody && polaN) {
+      const renderRows = () => {
+        const n = Math.max(1, parseInt(polaN.value || '1'));
+        polaBody.innerHTML = '';
+        for (let i = 1; i <= n; i++) {
+          const tr = document.createElement('tr');
+          const tdI = document.createElement('td'); tdI.className = 'py-2 border-b border-gray-300'; tdI.textContent = String(i);
+          const tdR = document.createElement('td'); tdR.className = 'py-2 border-b border-gray-300'; tdR.textContent = '4 + (n-1)×3';
+          const tdB = document.createElement('td'); tdB.className = 'py-2 border-b border-gray-300'; tdB.textContent = String(4 + (i - 1) * 3);
+          tr.appendChild(tdI); tr.appendChild(tdR); tr.appendChild(tdB);
+          polaBody.appendChild(tr);
+        }
+      };
+      polaBtn.addEventListener('click', renderRows);
+      renderRows();
+    }
+
     renderMathJax(contentArea);
   }
 

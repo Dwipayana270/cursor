@@ -112,6 +112,29 @@
         <li>Tentukan rumus untuk menghitung banyak korek api pada pola ke-n</li>
       </ol>
     </div>
+
+    <div class="mt-6 neo-brutal bg-white p-4 rounded-brutal">
+      <h4 class="font-bold mb-3">Tabel Pola Korek Api (Dinamis)</h4>
+      <div class="flex items-end gap-3 flex-wrap">
+        <div>
+          <label for="pola-n" class="block text-sm font-semibold">Jumlah baris</label>
+          <input id="pola-n" type="number" min="1" value="5" class="border-2 border-black rounded px-3 py-2 w-28" />
+        </div>
+        <button id="pola-generate" class="btn-brutal bg-white text-black px-4 py-2">Buat Tabel</button>
+      </div>
+      <div class="overflow-x-auto mt-4">
+        <table class="w-full text-left">
+          <thead>
+            <tr>
+              <th class="border-b-2 border-black py-2">Pola ke-</th>
+              <th class="border-b-2 border-black py-2">Rumus</th>
+              <th class="border-b-2 border-black py-2">Banyak</th>
+            </tr>
+          </thead>
+          <tbody id="pola-tbody"></tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
   <div class="neo-brutal bg-indigo-100 p-6 rounded-lg mt-6">
