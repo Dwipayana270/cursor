@@ -331,12 +331,18 @@ async function showLearning(bab, level) {
 
 async function loadContent(bab, level) {
   const contentArea = document.getElementById("content-area");
-  contentArea.innerHTML = `<div class="text-center py-8">Memuat konten...</div>`;
+  contentArea.innerHTML = `<div class=\"text-center py-8\">Memuat konten...</div>`;
   try {
     const html = await loadLessonTemplate(bab, level);
     contentArea.innerHTML = html;
+    // After injecting HTML, trigger MathJax typesetting if available
+    if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
+      MathJax.typesetPromise([contentArea]).catch(() => {});
+    }
+    // Inject GeoGebra applets if placeholders exist
+    setupGeoGebraIfPresent();
   } catch (e) {
-    contentArea.innerHTML = `<div class="neo-brutal-red rounded-brutal p-4 text-white">${e.message}</div>`;
+    contentArea.innerHTML = `<div class=\"neo-brutal-red rounded-brutal p-4 text-white\">${e.message}</div>`;
   }
 }
 
@@ -559,6 +565,41 @@ function submitEvaluation() {
   if (!progress[currentBab]) progress[currentBab] = {};
   progress[currentBab].evaluation = { score, total: questions.length, percentage };
   saveProgressData(progress);
+}
+
+// Inserted: GeoGebra setup to inject applets when placeholders exist
+function setupGeoGebraIfPresent() {
+  if (typeof GGBApplet === 'undefined') return;
+  const applet1 = document.getElementById('ggbApplet');
+  if (applet1) {
+    const params1 = {
+      id: 'ggbApplet',
+      width: 800,
+      height: 400,
+      showMenuBar: false,
+      showAlgebraInput: false,
+      showToolBar: false,
+      showFullscreenButton: true,
+      language: 'en',
+      material_id: 'px7d7qz5'
+    };
+    try { new GGBApplet(params1, '5.0', { AV:0, SV:0, CV:0, EV2:0, CP:0, PC:0, DA:0, FI:0, macro:0 }).inject('ggbApplet'); } catch(_) {}
+  }
+  const applet2 = document.getElementById('ggbApplet2');
+  if (applet2) {
+    const params2 = {
+      id: 'ggbApplet2',
+      width: 800,
+      height: 400,
+      showMenuBar: false,
+      showAlgebraInput: false,
+      showToolBar: false,
+      showFullscreenButton: true,
+      language: 'en',
+      material_id: 'wkC2wGgK'
+    };
+    try { new GGBApplet(params2, '5.0', { AV:0, SV:0, CV:0, EV2:0, CP:0, PC:0, DA:0, FI:0, macro:0 }).inject('ggbApplet2'); } catch(_) {}
+  }
 }
 
 // Progress persistence
