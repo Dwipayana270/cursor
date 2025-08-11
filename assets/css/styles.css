@@ -84,4 +84,11 @@ body { font-family: "Rubik", sans-serif; background-color: #f0f0f0; }
   .neo-brutal, .neo-brutal-nohover, .neo-brutal-yellow, .neo-brutal-blue, .neo-brutal-red, .neo-brutal-green { box-shadow: 4px 4px 0 #000; }
   /* Disable sticky on mobile to avoid awkward scroll locking */
   .sticky { position: static; }
+  /* Reduce generous desktop spacings on mobile */
+  .p-8 { padding: 1rem !important; }
+  .p-6 { padding: 0.75rem !important; }
+  .mb-8 { margin-bottom: 1rem !important; }
+  .mt-8 { margin-top: 1rem !important; }
+  .gap-8 { gap: 1rem !important; }
+  .space-y-8 > * + * { margin-top: 1rem !important; }
 }
