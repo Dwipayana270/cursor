@@ -74,12 +74,47 @@
     }
   }
 
+  function saveUIState(state) {
+    try { localStorage.setItem('mathUI', JSON.stringify(state || {})); } catch(_) {}
+  }
+  function getUIState() {
+    try { const s = localStorage.getItem('mathUI'); return s ? JSON.parse(s) : null; } catch(_) { return null; }
+  }
+
   function initApp() {
     const savedProgress = localStorage.getItem("mathProgress");
     if (savedProgress) {
       const progress = JSON.parse(savedProgress);
       updateProgressUI(progress);
       updateBabStatus(progress);
+    }
+    // Restore last UI state
+    const ui = getUIState();
+    if (ui && ui.screen) {
+      switch (ui.screen) {
+        case 'home':
+          showHome();
+          break;
+        case 'placement':
+          if (ui.bab) startPlacement(ui.bab); else showHome();
+          break;
+        case 'learning':
+          if (ui.bab && ui.level) showLearning(ui.bab, ui.level); else showHome();
+          break;
+        case 'evaluation':
+          if (ui.bab) showEvaluation(ui.bab); else showHome();
+          break;
+        case 'progress':
+          showProgress();
+          break;
+        case 'about':
+          showAbout();
+          break;
+        default:
+          showHome();
+      }
+    } else {
+      showHome();
     }
   }
 
@@ -95,11 +130,13 @@
     document.getElementById("evaluation-screen").classList.add("hidden");
     document.getElementById("progress-screen").classList.add("hidden");
     document.getElementById("about-screen").classList.add("hidden");
+    saveUIState({ screen: 'home' });
     scrollToTop();
   }
 
   function startBab(bab) {
     currentBab = bab;
+    saveUIState({ screen: 'placement', bab });
     const progress = getProgress();
     if (progress[bab] && progress[bab].level) {
       document.getElementById("home-screen").classList.add("hidden");
@@ -132,6 +169,7 @@
   function startPlacement(bab) {
     currentBab = bab;
     placementAnswers = {};
+    saveUIState({ screen: 'placement', bab });
     document.getElementById("home-screen").classList.add("hidden");
     document.getElementById("placement-screen").classList.remove("hidden");
 
@@ -197,6 +235,7 @@
   function showLearning(bab, level) {
     currentBab = bab;
     currentLevel = level;
+    saveUIState({ screen: 'learning', bab, level });
     document.getElementById("placement-screen").classList.add("hidden");
     document.getElementById("learning-screen").classList.remove("hidden");
 
@@ -384,6 +423,7 @@
   function showEvaluation(bab) {
     currentBab = bab;
     evaluationAnswers = {};
+    saveUIState({ screen: 'evaluation', bab });
     document.getElementById('learning-screen').classList.add('hidden');
     document.getElementById('evaluation-screen').classList.remove('hidden');
 
@@ -520,6 +560,7 @@
     document.getElementById("evaluation-screen").classList.add("hidden");
     document.getElementById("progress-screen").classList.remove("hidden");
     document.getElementById("about-screen").classList.add("hidden");
+    saveUIState({ screen: 'progress' });
     const progress = getProgress();
     updateProgressUI(progress);
   }
@@ -531,6 +572,7 @@
     document.getElementById("evaluation-screen").classList.add("hidden");
     document.getElementById("progress-screen").classList.add("hidden");
     document.getElementById("about-screen").classList.remove("hidden");
+    saveUIState({ screen: 'about' });
   }
 
   function confirmReset() {
