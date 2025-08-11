@@ -143,9 +143,12 @@
       const card = document.createElement('div');
       card.className = 'neo-brutal rounded-brutal p-6';
 
-      const h3 = document.createElement('h3');
-      h3.className = 'text-xl font-bold mb-4';
-      h3.textContent = `Pertanyaan ${index+1}: ${q.question}`;
+      const label = document.createElement('span');
+      label.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold bg-yellow-400 border-2 border-black text-black';
+      label.textContent = `Pertanyaan ${index+1}`;
+      const qText = document.createElement('p');
+      qText.className = 'text-lg font-semibold mt-2 mb-4';
+      qText.textContent = q.question;
 
       const optsBox = document.createElement('div');
       optsBox.className = 'space-y-3';
@@ -165,7 +168,8 @@
         optsBox.appendChild(label);
       });
 
-      card.appendChild(h3);
+      card.appendChild(label);
+      card.appendChild(qText);
       card.appendChild(optsBox);
       container.appendChild(card);
     });
@@ -388,9 +392,12 @@
     questions.forEach((q, index) => {
       const card = document.createElement('div');
       card.className = 'neo-brutal rounded-brutal p-6';
-      const h3 = document.createElement('h3');
-      h3.className = 'text-xl font-bold mb-4';
-      h3.textContent = `Soal ${index+1}: ${q.question}`;
+      const label = document.createElement('span');
+      label.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold bg-yellow-400 border-2 border-black text-black';
+      label.textContent = `Soal ${index+1}`;
+      const qText = document.createElement('p');
+      qText.className = 'text-lg font-semibold mt-2 mb-4';
+      qText.textContent = q.question;
       const opts = document.createElement('div'); opts.className = 'space-y-3';
       q.options.forEach((opt, optIndex) => {
         const label = document.createElement('label');
@@ -400,7 +407,9 @@
         label.appendChild(input); label.appendChild(span);
         opts.appendChild(label);
       });
-      card.appendChild(h3); card.appendChild(opts);
+      card.appendChild(label);
+      card.appendChild(qText);
+      card.appendChild(opts);
       container.appendChild(card);
     });
   }
