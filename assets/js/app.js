@@ -286,6 +286,7 @@
 
     const contentArea = document.getElementById('content-area');
     // skeleton placeholder while loading
+    contentArea.classList.add('loading');
     contentArea.innerHTML = '';
     const skeletonWrap = document.createElement('div');
     skeletonWrap.className = 'space-y-4 mb-8';
@@ -311,6 +312,7 @@
     contentBox.innerHTML = html;
     // remove skeleton
     contentArea.innerHTML = '';
+    contentArea.classList.remove('loading');
 
     const exerciseCard = document.createElement('div');
     exerciseCard.className = 'neo-brutal-red rounded-brutal p-6 mb-8';
