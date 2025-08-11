@@ -236,6 +236,7 @@
     currentBab = bab;
     currentLevel = level;
     saveUIState({ screen: 'learning', bab, level });
+    document.getElementById("home-screen").classList.add("hidden");
     document.getElementById("placement-screen").classList.add("hidden");
     document.getElementById("learning-screen").classList.remove("hidden");
 
