@@ -1,73 +1,305 @@
 <div class="space-y-6">
-  <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white border-4 border-black rounded-lg p-6">
-    <h3 class="text-2xl font-bold mb-4">💰 Aljabar di Dunia Keuangan</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="bg-white/20 backdrop-blur-sm p-4 rounded border-2 border-white/30">
-        <h4 class="font-bold mb-2">💸 Pengeluaran Bulanan</h4>
-        <p class="mb-2">Modelkan pengeluaran keluarga:</p>
-        <p class="math-symbol">Total = makanan + transport + listrik + hiburan</p>
-        <p class="text-sm">Jika makanan = x, transport = 0.5x, listrik = 0.3x, hiburan = 0.2x</p>
-        <p class="math-symbol font-bold">Total = x + 0.5x + 0.3x + 0.2x = 2x</p>
+  <!-- Bentuk Aljabar (Menengah disalin utuh + Lanjut) -->
+  <div class="bg-blue-100 border-4 border-black rounded-lg p-6">
+    <h3 class="text-2xl font-bold mb-4">🔤 Apa itu Bentuk Aljabar?</h3>
+    <!-- Materi Menengah (utuh) -->
+    <p class="text-lg mb-4">Bentuk aljabar adalah bentuk matematika yang menggunakan huruf sebagai pengganti bilangan yang belum diketahui atau dapat berubah.</p>
+
+    <div class="mt-4 p-4 bg-blue-50 border-2 border-blue-300 rounded">
+      <p class="font-bold">Definisi Unsur-unsur Bentuk Aljabar:</p>
+      <ul class="list-disc pl-6 mt-2">
+        <li><strong>Variabel:</strong> Simbol huruf yang mewakili bilangan yang belum diketahui atau dapat berubah.</li>
+        <li><strong>Konstanta:</strong> Bilangan tetap yang tidak berubah nilainya.</li>
+        <li><strong>Koefisien:</strong> Bilangan yang mengalikan variabel dalam suatu suku.</li>
+        <li><strong>Suku:</strong> Bagian dari bentuk aljabar yang terpisah oleh operasi penjumlahan atau pengurangan.</li>
+      </ul>
+    </div>
+
+    <div class="mt-6">
+      <h4 class="font-bold mb-4">Contoh-contoh dan Penjelasan Unsur-unsurnya:</h4>
+
+      <div class="bg-white p-4 rounded border-2 border-gray-300 mb-4">
+        <p class="font-bold mb-2">Contoh 1: <span class="math-symbol">2x + 5</span></p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li><strong>Variabel:</strong> x (huruf yang mewakili bilangan yang belum diketahui)</li>
+          <li><strong>Konstanta:</strong> 5 (bilangan tetap tanpa variabel)</li>
+          <li><strong>Koefisien:</strong> 2 (bilangan yang mengalikan variabel x)</li>
+          <li><strong>Suku:</strong> 2x (suku pertama) dan 5 (suku kedua)</li>
+        </ul>
       </div>
-      <div class="bg-white/20 backdrop-blur-sm p-4 rounded border-2 border-white/30">
-        <h4 class="font-bold mb-2">📈 Investasi</h4>
-        <p class="mb-2">Modal awal + keuntungan = total investasi</p>
-        <p class="math-symbol">Total = M + r × t</p>
-        <p class="text-sm">M = modal, r = keuntungan per periode, t = jumlah periode</p>
+
+      <div class="bg-white p-4 rounded border-2 border-gray-300 mb-4">
+        <p class="font-bold mb-2">Contoh 2: <span class="math-symbol">4a + 2b</span></p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li><strong>Variabel:</strong> a dan b (huruf yang mewakili bilangan yang belum diketahui)</li>
+          <li><strong>Konstanta:</strong> Tidak ada konstanta dalam bentuk ini</li>
+          <li><strong>Koefisien:</strong> 4 (pada variabel a) dan 2 (pada variabel b)</li>
+          <li><strong>Suku:</strong> 4a (suku pertama) dan 2b (suku kedua)</li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-4 rounded border-2 border-gray-300 mb-4">
+        <p class="font-bold mb-2">Contoh 3: <span class="math-symbol">x<sup>2</sup> + 3x - 2</span></p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li><strong>Variabel:</strong> x</li>
+          <li><strong>Konstanta:</strong> -2</li>
+          <li><strong>Koefisien:</strong> 1 (pada x²) dan 3 (pada x)</li>
+          <li><strong>Suku:</strong> x², 3x, dan -2</li>
+        </ul>
       </div>
     </div>
-  </div>
 
-  <div class="bg-gradient-to-r from-green-500 to-teal-600 text-white border-4 border-black rounded-lg p-6">
-    <h3 class="text-2xl font-bold mb-4">🏪 Aljabar dalam Bisnis</h3>
-    <div class="bg-white/20 backdrop-blur-sm p-4 rounded border-2 border-white/30">
-      <h4 class="font-bold mb-2">📦 Penjualan Produk</h4>
-      <p class="mb-3">Model keuntungan penjualan:</p>
-      <div class="space-y-2">
-        <p><span class="math-symbol">Keuntungan = (harga jual × jumlah) - (harga beli × jumlah) - biaya tetap</span></p>
-        <p><span class="math-symbol">P = (hj × n) - (hb × n) - Bt</span></p>
-      </div>
-      <div class="mt-4 p-3 bg-black/20 rounded">
-        <p class="font-semibold">Contoh: Jualan Bakso</p>
-        <p>Harga jual = Rp15.000/porsi, Harga beli = Rp10.000/porsi</p>
-        <p>Biaya tetap (sewa) = Rp50.000/hari</p>
-        <p>Jika terjual 30 porsi: P = (15.000×30) - (10.000×30) - 50.000 = Rp100.000</p>
-      </div>
+    <div class="mt-6 p-4 bg-blue-50 border-2 border-blue-300 rounded">
+      <p class="font-bold">💡 Mengapa Aljabar Penting?</p>
+      <p>Aljabar adalah bahasa matematika yang memungkinkan kita untuk:</p>
+      <ul class="list-disc pl-6 mt-2">
+        <li>Menyelesaikan masalah dengan variabel yang tidak diketahui</li>
+        <li>Menemukan pola dan hubungan umum</li>
+        <li>Membuat model matematika untuk situasi dunia nyata</li>
+        <li>Mengembangkan pemikiran logis dan abstrak</li>
+      </ul>
     </div>
-  </div>
 
-  <div class="bg-gradient-to-r from-yellow-500 to-orange-600 text-white border-4 border-black rounded-lg p-6">
-    <h3 class="text-2xl font-bold mb-4">🏠 Aljabar di Rumah Tangga</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="bg-white/20 backdrop-blur-sm p-4 rounded border-2 border-white/30">
-        <h4 class="font-bold mb-2">⚡ Tagihan Listrik</h4>
-        <p class="math-symbol">Total = tarif × pemakaian + biaya administrasi</p>
-        <p class="text-sm">Jika tarif = Rp1.500/kWh, pemakaian = x kWh, admin = Rp20.000</p>
-        <p class="math-symbol">Total = 1.500x + 20.000</p>
-      </div>
-      <div class="bg-white/20 backdrop-blur-sm p-4 rounded border-2 border-white/30">
-        <h4 class="font-bold mb-2">💧 Pengeluaran Air</h4>
-        <p class="math-symbol">Total = tarif × volume + biaya administrasi</p>
-        <p class="text-sm">Jika tarif = Rp5.000/m³, volume = y m³, admin = Rp10.000</p>
-        <p class="math-symbol">Total = 5.000y + 10.000</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="bg-gradient-to-r from-pink-500 to-rose-600 text-white border-4 border-black rounded-lg p-6">
-    <h3 class="text-2xl font-bold mb-4">🎯 Proyek Mini: "Bisnis Kecil-Kecilan"</h3>
-    <div class="bg-white/20 backdrop-blur-sm p-4 rounded border-2 border-white/30">
-      <h4 class="font-bold mb-3">Buat model matematika untuk bisnis sederhana!</h4>
+    <!-- Tambahan Lanjut -->
+    <div class="mt-6 p-4 bg-blue-200 border-2 border-black rounded">
+      <p class="text-lg font-bold mb-2">🔎 Tambahan Lanjut</p>
       <ol class="list-decimal pl-6 space-y-2">
-        <li>Pilih jenis bisnis (jualan makanan, jasa, produk)</li>
-        <li>Tentukan variabel (harga, biaya, jumlah)</li>
-        <li>Buat model aljabar untuk menghitung keuntungan</li>
-        <li>Simulasikan dengan berbagai skenario</li>
+        <li>Tentukan semua unsur (variabel, konstanta, koefisien, suku) untuk ekspresi: <span class="math-symbol">-3x^2 + 4xy - y + 7</span>.</li>
+        <li>Uraikan bentuk aljabar <span class="math-symbol">(a + b)^2</span> dan jelaskan mengapa suku-sukunya muncul (kaitkan dengan distributif).</li>
+        <li>Buat 3 contoh bentuk aljabar yang *tidak* memiliki konstanta dan jelaskan kapan bentuk semacam itu muncul dalam konteks nyata.</li>
       </ol>
-      <div class="mt-4 p-3 bg-black/20 rounded">
-        <p class="font-semibold">Template:</p>
-        <p class="math-symbol">Keuntungan = (harga × jumlah) - (biaya variabel × jumlah) - biaya tetap</p>
+    </div>
+  </div>
+
+  <!-- Operasi Aljabar (Menengah utuh + Lanjut) -->
+  <div class="bg-green-100 border-4 border-black rounded-lg p-6">
+    <h3 class="text-2xl font-bold mb-4">⚡ Operasi Aljabar</h3>
+
+    <!-- Menengah -->
+    <div class="space-y-4">
+      <div class="bg-white p-4 rounded border-2 border-gray-300">
+        <h4 class="font-bold mb-2">Penjumlahan/Pengurangan Suku Sejenis:</h4>
+        <p class="math-symbol text-lg">3x + 2x = 5x</p>
+        <p class="math-symbol text-lg">7y - 4y = 3y</p>
+        <div class="mt-3 p-3 bg-green-50 rounded">
+          <p class="font-semibold text-sm">Penjelasan Konsep:</p>
+          <p class="text-sm">Suku sejenis memiliki variabel dan pangkat yang sama.</p>
+        </div>
       </div>
+
+      <div class="bg-white p-4 rounded border-2 border-gray-300">
+        <h4 class="font-bold mb-2">Perkalian:</h4>
+        <p class="math-symbol text-lg">2x × 3y = 6xy</p>
+        <p class="math-symbol text-lg">4a × 5a = 20a<sup>2</sup></p>
+        <div class="mt-3 p-3 bg-green-50 rounded">
+          <p class="font-semibold text-sm">Aturan Perkalian:</p>
+          <ul class="list-disc pl-5 text-sm">
+            <li>Kalikan koefisien</li>
+            <li>Kalikan variabel</li>
+            <li>Variabel sama: pangkat dijumlah</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded border-2 border-gray-300">
+        <h4 class="font-bold mb-2">Sifat Distributif:</h4>
+        <p class="math-symbol text-lg">2(x + 3) = 2x + 6</p>
+        <p class="math-symbol text-lg">3(2y - 1) = 6y - 3</p>
+        <div class="mt-3 p-3 bg-green-50 rounded">
+          <p class="font-semibold text-sm">Aplikasi Sifat Distributif:</p>
+          <p class="text-sm">Berguna untuk menyederhanakan ekspresi aljabar.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lanjut -->
+    <div class="mt-6 p-4 bg-green-200 border-2 border-black rounded">
+      <p class="text-lg font-bold mb-2">🔎 Tambahan Lanjut</p>
+      <ol class="list-decimal pl-6 space-y-2">
+        <li>Sederhanakan dan jelaskan langkahnya: <span class="math-symbol">2x(3x - 4) + 4x( x + 1 )</span>.</li>
+        <li>Buktikan secara aljabar identitas: <span class="math-symbol">(x + 1)(x - 1) = x^2 - 1</span>, lalu berikan interpretasi geometri sederhana (misal area).</li>
+        <li>Berikan tiga contoh penggunaan sifat distributif dalam menyelesaikan soal cerita nyata (misal: paket diskon, pembelian grosir, skema volume bahan).</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Eksplorasi Pola Korek Api dengan GeoGebra (Menengah + Lanjut) -->
+  <div class="neo-brutal bg-purple-100 p-6 rounded-lg mt-6">
+    <h3 class="text-2xl font-bold mb-4">🔥 Eksplorasi Pola Korek Api dengan GeoGebra</h3>
+
+    <!-- Menengah -->
+    <p class="mb-4">Gunakan GeoGebra di bawah ini untuk mengeksplorasi pola korek api:</p>
+    <div class="bg-white p-4 rounded border-2 border-gray-300 overflow-hidden">
+      <div id="ggbApplet"></div>
+    </div>
+    <div class="mt-4">
+      <p class="font-semibold">Aktivitas:</p>
+      <ol class="list-decimal pl-6 mt-2">
+        <li>Gunakan slider untuk mengamati pola korek api</li>
+        <li>Hitung banyak korek api untuk pola ke-4 dan ke-5</li>
+        <li>Tentukan rumus untuk menghitung banyak korek api pada pola ke-n</li>
+      </ol>
+    </div>
+
+    <!-- Lanjut -->
+    <div class="mt-6 p-4 bg-purple-200 border-2 border-black rounded">
+      <p class="text-lg font-bold mb-2">🔎 Tambahan Lanjut</p>
+      <ol class="list-decimal pl-6 space-y-2">
+        <li>Jika pola menghasilkan jumlah korek api yang mengikuti deret aritmetika atau geometri, identifikasikan dan buktikan rumus umum untuk suku ke-n.</li>
+        <li>Jika pola dapat dimodelkan oleh polinomial derajat 2, tentukan koefisien polinomial tersebut dari data pola pertama sampai pola ke-4 (gunakan metode substitusi atau sistem persamaan).</li>
+        <li>Buat tantangan: berikan pola baru (gambar kecil) dan minta siswa menebak rumusnya. Sertakan solusi langkah demi langkah.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Contoh Soal (carousel) Menengah + Lanjut -->
+  <div class="neo-brutal bg-indigo-100 p-6 rounded-lg mt-6">
+    <h3 class="text-2xl font-bold mb-4">📝 Contoh Soal</h3>
+    <div class="carousel-container">
+      <div class="carousel">
+        <!-- Pertanyaan 1 (Menengah) -->
+        <div class="carousel-item bg-white p-4 rounded border-2 border-gray-300">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-yellow-400 border-2 border-black text-black">Pertanyaan 1</span>
+          <p class="text-lg font-semibold mt-2 mb-2">Sederhanakan bentuk aljabar: 3x + 2y - x + 4y</p>
+          <button class="btn-brutal bg-blue-400 text-white px-4 py-2 text-sm mb-2" onclick="toggleSolution('solution4-1')">Lihat Penyelesaian</button>
+          <div id="solution4-1" class="solution-content hidden">
+            <div class="bg-blue-50 p-3 rounded border-2 border-blue-200">
+              <p class="font-semibold">Penyelesaian:</p>
+              <p>3x + 2y - x + 4y</p>
+              <p>= (3x - x) + (2y + 4y)</p>
+              <p>= 2x + 6y</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pertanyaan 2 (Menengah) -->
+        <div class="carousel-item bg-white p-4 rounded border-2 border-gray-300 hidden">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-yellow-400 border-2 border-black text-black">Pertanyaan 2</span>
+          <p class="text-lg font-semibold mt-2 mb-2">Hitung nilai dari 2x² - 3x + 5 jika x = 2</p>
+          <button class="btn-brutal bg-blue-400 text-white px-4 py-2 text-sm mb-2" onclick="toggleSolution('solution4-2')">Lihat Penyelesaian</button>
+          <div id="solution4-2" class="solution-content hidden">
+            <div class="bg-blue-50 p-3 rounded border-2 border-blue-200">
+              <p class="font-semibold">Penyelesaian:</p>
+              <p>2x² - 3x + 5</p>
+              <p>= 2(2)² - 3(2) + 5</p>
+              <p>= 2(4) - 6 + 5</p>
+              <p>= 8 - 6 + 5 = 7</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pertanyaan 3 (Menengah) -->
+        <div class="carousel-item bg-white p-4 rounded border-2 border-gray-300 hidden">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-yellow-400 border-2 border-black text-black">Pertanyaan 3</span>
+          <p class="text-lg font-semibold mt-2 mb-2">Jika 5a - 3b = 7 dan a = 2, tentukan nilai b!</p>
+          <button class="btn-brutal bg-blue-400 text-white px-4 py-2 text-sm mb-2" onclick="toggleSolution('solution4-3')">Lihat Penyelesaian</button>
+          <div id="solution4-3" class="solution-content hidden">
+            <div class="bg-blue-50 p-3 rounded border-2 border-blue-200">
+              <p class="font-semibold">Penyelesaian:</p>
+              <p>5a - 3b = 7 → 5(2) - 3b = 7 → 10 - 3b = 7 → -3b = -3 → b = 1</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tambahan Lanjut: soal susah -->
+        <div class="carousel-item bg-white p-4 rounded border-2 border-gray-300 hidden">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-red-400 border-2 border-black text-black">Lanjut</span>
+          <p class="text-lg font-semibold mt-2 mb-2">Soal Lanjut 1: Selesaikan persamaan kuadrat <span class="math-symbol">x^2 - 5x + 6 = 0</span> dan jelaskan metode yang dipakai.</p>
+          <p class="text-lg font-semibold mt-2 mb-2">Soal Lanjut 2: Diberi sistem persamaan <span class="math-symbol">2x + 3y = 13</span> dan <span class="math-symbol">x - y = 1</span>, tentukan (x,y).</p>
+          <button class="btn-brutal bg-blue-400 text-white px-4 py-2 text-sm mb-2" onclick="toggleSolution('solution4-4')">Lihat Penyelesaian</button>
+          <div id="solution4-4" class="solution-content hidden">
+            <div class="bg-blue-50 p-3 rounded border-2 border-blue-200">
+              <p class="font-semibold">Penyelesaian Soal Lanjut 1 (faktorisasi):</p>
+              <p>x^2 - 5x + 6 = (x - 2)(x - 3) → x = 2 atau x = 3</p>
+              <p class="mt-2 font-semibold">Penyelesaian Soal Lanjut 2 (substitusi):</p>
+              <p>x = y + 1 → 2(y + 1) + 3y = 13 → 2y + 2 + 3y = 13 → 5y = 11 → y = 11/5 → x = 16/5</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center mt-4 space-x-2">
+        <button class="carousel-btn bg-blue-500 text-white w-8 h-8 rounded-full" onclick="changeSlide(0)">1</button>
+        <button class="carousel-btn bg-gray-300 text-gray-700 w-8 h-8 rounded-full" onclick="changeSlide(1)">2</button>
+        <button class="carousel-btn bg-gray-300 text-gray-700 w-8 h-8 rounded-full" onclick="changeSlide(2)">3</button>
+        <button class="carousel-btn bg-gray-300 text-gray-700 w-8 h-8 rounded-full" onclick="changeSlide(3)">L</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Latihan Mandiri (Menengah + Lanjut) -->
+  <div class="bg-yellow-100 border-4 border-black rounded-lg p-6">
+    <h3 class="text-2xl font-bold mb-4">🎯 Latihan Mandiri</h3>
+    <!-- Menengah: soal tertulis -->
+    <p class="mb-4">Kerjakan soal-soal berikut (Dasar):</p>
+    <div class="space-y-3">
+      <div class="bg-white p-3 rounded border-2 border-gray-300">
+        <p>1. Sederhanakan: <span class="math-symbol">4x + 7x</span> = ?</p>
+        <textarea class="border-2 border-gray-400 rounded px-2 py-1 w-full h-16" placeholder="Jawaban"></textarea>
+        <button class="btn-brutal bg-blue-400 text-white px-4 py-2 mt-2">Kirim Jawaban</button>
+        <div class="feedback hidden mt-2 p-3 rounded border-2 border-gray-300"></div>
+      </div>
+      <div class="bg-white p-3 rounded border-2 border-gray-300">
+        <p>2. Hitung: <span class="math-symbol">3(x + 4)</span> = ?</p>
+        <textarea class="border-2 border-gray-400 rounded px-2 py-1 w-full h-16" placeholder="Jawaban"></textarea>
+        <button class="btn-brutal bg-blue-400 text-white px-4 py-2 mt-2">Kirim Jawaban</button>
+        <div class="feedback hidden mt-2 p-3 rounded border-2 border-gray-300"></div>
+      </div>
+      <div class="bg-white p-3 rounded border-2 border-gray-300">
+        <p>3. Jika x = 5, hitung <span class="math-symbol">2x + 3</span> = ?</p>
+        <textarea class="border-2 border-gray-400 rounded px-2 py-1 w-full h-16" placeholder="Jawaban"></textarea>
+        <button class="btn-brutal bg-blue-400 text-white px-4 py-2 mt-2">Kirim Jawaban</button>
+        <div class="feedback hidden mt-2 p-3 rounded border-2 border-gray-300"></div>
+      </div>
+    </div>
+
+    <!-- Lanjut: soal lebih menantang -->
+    <div class="mt-6 p-4 bg-yellow-200 border-2 border-black rounded">
+      <p class="text-lg font-bold mb-2">🔎 Tambahan Lanjut (Latihan Lebih Sulit)</p>
+      <ol class="list-decimal pl-6 space-y-3">
+        <li>Selesaikan: <span class="math-symbol">2x^2 - 4x = 0</span>. Jelaskan dua metode berbeda (faktorisasi & rumus kuadrat).</li>
+        <li>Jika <span class="math-symbol">3(x - 1) + 2 = 2x + 7</span>, tentukan x dan jelaskan langkah verifikasi.</li>
+        <li>Buat soal cerita singkat (minimum 3 baris) yang memerlukan pembuatan bentuk aljabar untuk menyelesaikannya, lalu sertakan solusi singkat.</li>
+      </ol>
+    </div>
+
+    <div class="mt-4 p-4 bg-yellow-50 border-2 border-yellow-300 rounded">
+      <p class="font-bold">🔍 Strategi Pemecahan Masalah Aljabar:</p>
+      <ol class="list-decimal pl-6 mt-2">
+        <li>Identifikasi variabel dan konstanta</li>
+        <li>Kelompokkan suku sejenis</li>
+        <li>Terapkan operasi yang sesuai</li>
+        <li>Periksa kembali hasilnya</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Koneksi Antar Konsep (Menengah + Lanjut) -->
+  <div class="bg-indigo-100 border-4 border-black rounded-lg p-6">
+    <h3 class="text-2xl font-bold mb-4">🔗 Koneksi Antar Konsep</h3>
+    <!-- Menengah -->
+    <div class="bg-white p-4 rounded border-2 border-gray-300">
+      <p class="font-semibold mb-3">Bagaimana aljabar terhubung dengan konsep lainnya?</p>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Kesebangunan</strong> → Perbandingan sisi-sisi segitiga sebangun dapat dinyatakan dalam bentuk aljabar</li>
+        <li><strong>Data dan Diagram</strong> → Persamaan garis lurus (y = mx + c) digunakan untuk menganalisis tren data</li>
+        <li><strong>Geometri</strong> → Rumus luas dan volume sering menggunakan variabel (misal: Luas = p × l)</li>
+        <li><strong>Aritmatika</strong> → Pola bilangan dapat dinyatakan dalam bentuk aljabar (misal: suku ke-n = 2n + 1)</li>
+      </ul>
+      <div class="mt-4 p-3 bg-indigo-50 border-2 border-indigo-200 rounded">
+        <p class="font-bold">Contoh Koneksi:</p>
+        <p>Dalam kesebangunan, jika dua segitiga sebangun dengan perbandingan sisi 1:3, maka kita dapat menuliskan hubungan ini sebagai: sisi₁/sisi₂ = 1/3 atau sisi₂ = 3 × sisi₁</p>
+      </div>
+    </div>
+
+    <!-- Lanjut -->
+    <div class="mt-6 p-4 bg-indigo-200 border-2 border-black rounded">
+      <p class="text-lg font-bold mb-2">🔎 Tambahan Lanjut</p>
+      <ol class="list-decimal pl-6 space-y-2">
+        <li>Hubungkan persamaan kuadrat dengan masalah geometri: berikan contoh soal dimana solusi x dari <span class="math-symbol">x^2 + bx + c = 0</span> berhubungan dengan panjang sisi sebuah persegi/segitiga. Jelaskan pemodelannya.</li>
+        <li>Tunjukkan bagaimana regresi garis lurus (y = mx + c) dapat digunakan untuk memprediksi nilai dalam konteks sederhana (misal: prediksi penjualan berdasarkan iklan). Buat satu contoh numerik sederhana dan temukan m & c dari dua titik data.</li>
+        <li>Buat satu soal yang menggabungkan kesebangunan dan aljabar: (misal: dua segitiga sebangun, panjang sisi diketahui sebagian, gunakan aljabar untuk menemukan sisi yang hilang).</li>
+      </ol>
     </div>
   </div>
 </div>
