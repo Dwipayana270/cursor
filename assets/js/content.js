@@ -109,8 +109,8 @@ const evaluationTests = {
   4: [
     { question: "Sederhanakan bentuk aljabar: (2x + 3y) + (4x - 2y)", options: [ { text: "6x + y", correct: true }, { text: "6x + 5y", correct: false }, { text: "2x + y", correct: false }, { text: "2x + 5y", correct: false } ] },
     { question: "Faktorkan bentuk aljabar: x² - 9", options: [ { text: "(x - 3)(x + 3)", correct: true }, { text: "(x - 9)(x + 1)", correct: false }, { text: "(x - 3)²", correct: false }, { text: "x(x - 9)", correct: false } ] },
-    { question: "Jika x + y = 10 dan x - y = 4, maka nilai x adalah...", options: [ { text: "3", correct: false }, { text: "7", correct: true }, { text: "10", correct: false }, { text: "14", correct: false } ] },
-    { question: "Hasil dari (x + 2)² adalah...", options: [ { text: "x² + 4", correct: false }, { text: "x² + 4x + 4", correct: true }, { text: "x² + 2x + 4", correct: false }, { text: "x² + 4x + 2", correct: false } ] },
+    { question: "Manakah dua bentuk aljabar yang ekuivalen?", options: [ { text: "5x dengan 5x + 4", correct: false }, { text: "-x + 1 dengan 1 - x", correct: true }, { text: "10", correct: false }, { text: "14", correct: false } ] },
+    { question: "Hasil dari (x + 2)² adalah...", options: [ { text: "x² + 4", correct: false }, { text: "x² + 4x + 4", correct: true }, { text: "x² + 2x + 4 dengan (x-2)²", correct: false }, { text: "x² + 4x dengan x(2x + 1)", correct: false } ] },
     { question: "Sebuah persegi panjang memiliki panjang (2x + 3) cm dan lebar (x - 1) cm. Luasnya adalah...", options: [ { text: "2x² + x - 3", correct: true }, { text: "2x² + 5x - 3", correct: false }, { text: "3x² + 2x - 3", correct: false }, { text: "2x² - x - 3", correct: false } ] },
   ],
   5: [
