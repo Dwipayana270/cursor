@@ -299,8 +299,7 @@
     const sk1 = document.createElement('div'); sk1.className = 'skeleton skeleton-title';
     const sk2 = document.createElement('div'); sk2.className = 'skeleton skeleton-line';
     const sk3 = document.createElement('div'); sk3.className = 'skeleton skeleton-line';
-    const skCard = document.createElement('div'); skCard.className = 'skeleton skeleton-card';
-    skeletonWrap.appendChild(sk1); skeletonWrap.appendChild(sk2); skeletonWrap.appendChild(sk3); skeletonWrap.appendChild(skCard);
+    skeletonWrap.appendChild(sk1); skeletonWrap.appendChild(sk2); skeletonWrap.appendChild(sk3);
     contentArea.appendChild(skeletonWrap);
 
     const title = document.createElement('h2');
