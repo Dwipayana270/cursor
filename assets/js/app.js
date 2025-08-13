@@ -563,7 +563,7 @@
       container.appendChild(lanjutRow);
 
       if (progress[key].evaluation && typeof progress[key].evaluation.score !== 'undefined') {
-        const evalBox = document.createElement('div'); evalBox.className = 'mt-4 p-3 bg-blue-100 border-2 border-black rounded';
+        const evalBox = document.createElement('div'); evalBox.className = 'mt-4 p-3 bg-blue-100 border-2 border-black rounded text-green-700';
         const span = document.createElement('span'); span.className = 'font-bold'; span.textContent = `Evaluasi: ${progress[key].evaluation.score}/${progress[key].evaluation.total} (${progress[key].evaluation.percentage}%)`;
         evalBox.appendChild(span); container.appendChild(evalBox);
       }
