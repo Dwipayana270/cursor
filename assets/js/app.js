@@ -44,9 +44,12 @@
   function waitForDivAndInject() {
     const observer = new MutationObserver(() => {
       const el = document.getElementById('ggbApplet');
-      if (el && applet) { observer.disconnect(); applet.inject('ggbApplet'); }
+      if (el && applet && el.childElementCount === 0) { applet.inject('ggbApplet'); }
     });
     observer.observe(document.body, { childList: true, subtree: true });
+    // Immediate attempt in case element already exists
+    const elNow = document.getElementById('ggbApplet');
+    if (elNow && applet && elNow.childElementCount === 0) { applet.inject('ggbApplet'); }
   }
   waitForDivAndInject();
 
@@ -60,9 +63,12 @@
   function waitForDivAndInject2() {
     const observer = new MutationObserver(() => {
       const el = document.getElementById('ggbApplet2');
-      if (el && applet2) { observer.disconnect(); applet2.inject('ggbApplet2'); }
+      if (el && applet2 && el.childElementCount === 0) { applet2.inject('ggbApplet2'); }
     });
     observer.observe(document.body, { childList: true, subtree: true });
+    // Immediate attempt in case element already exists
+    const elNow = document.getElementById('ggbApplet2');
+    if (elNow && applet2 && elNow.childElementCount === 0) { applet2.inject('ggbApplet2'); }
   }
   waitForDivAndInject2();
 
@@ -372,6 +378,15 @@
     contentArea.appendChild(title);
     contentArea.appendChild(desc);
     contentArea.appendChild(contentBox);
+    
+    // Force-attempt GeoGebra injection after content is in DOM
+    try {
+      const el1 = document.getElementById('ggbApplet');
+      if (el1 && applet && el1.childElementCount === 0) { applet.inject('ggbApplet'); }
+      const el2 = document.getElementById('ggbApplet2');
+      if (el2 && applet2 && el2.childElementCount === 0) { applet2.inject('ggbApplet2'); }
+    } catch(_) {}
+    
     contentArea.appendChild(exerciseCard);
     contentArea.appendChild(nav);
 
