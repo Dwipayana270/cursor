@@ -80,6 +80,34 @@
     }
   }
 
+  function autoWrapInlineMath(container) {
+    if (!container) return;
+    // Wrap elements explicitly marked as math
+    const mathEls = container.querySelectorAll('.math-symbol');
+    mathEls.forEach((el) => {
+      const txt = (el.textContent || '').trim();
+      if (!txt) return;
+      if (txt.includes('$')) return;
+      el.textContent = `$${txt}$`;
+    });
+
+    // Heuristic: wrap inline math-like sequences in plain text nodes of simple elements
+    const candidates = container.querySelectorAll('p, li, span');
+    const hasChildElements = (el) => el.children && el.children.length > 0;
+    // Require at least one operator between tokens to avoid over-wrapping
+    const mathRegex = /([A-Za-z0-9πθΔ∠√]+(?:\s*[\*x×÷/:\^\+\-\=]\s*[A-Za-z0-9πθΔ∠√()]+)+)/g;
+    candidates.forEach((el) => {
+      if (hasChildElements(el)) return;
+      const original = el.textContent || '';
+      if (!original) return;
+      if (original.includes('$')) return;
+      const wrapped = original.replace(mathRegex, (m) => `$${m}$`);
+      if (wrapped !== original) {
+        el.textContent = wrapped; // safe since we only set text content
+      }
+    });
+  }
+
   function saveUIState(state) {
     try { localStorage.setItem('mathUI', JSON.stringify(state || {})); } catch(_) {}
   }
@@ -138,6 +166,9 @@
     document.getElementById("about-screen").classList.add("hidden");
     saveUIState({ screen: 'home' });
     scrollToTop();
+    const home = document.getElementById('home-screen');
+    autoWrapInlineMath(home);
+    renderMathJax(home);
   }
 
   function startBab(bab) {
@@ -217,6 +248,8 @@
       card.appendChild(optsBox);
       container.appendChild(card);
     });
+    autoWrapInlineMath(container);
+    renderMathJax(container);
   }
 
   function submitPlacement() {
@@ -391,6 +424,7 @@
 
 
 
+    autoWrapInlineMath(contentArea);
     renderMathJax(contentArea);
   }
 
@@ -475,6 +509,8 @@
       card.appendChild(opts);
       container.appendChild(card);
     });
+    autoWrapInlineMath(container);
+    renderMathJax(container);
   }
 
   function submitEvaluation() {
@@ -584,6 +620,9 @@
     saveUIState({ screen: 'progress' });
     const progress = getProgress();
     updateProgressUI(progress);
+    const prog = document.getElementById('progress-screen');
+    autoWrapInlineMath(prog);
+    renderMathJax(prog);
   }
 
   function showAbout() {
@@ -594,6 +633,9 @@
     document.getElementById("progress-screen").classList.add("hidden");
     document.getElementById("about-screen").classList.remove("hidden");
     saveUIState({ screen: 'about' });
+    const about = document.getElementById('about-screen');
+    autoWrapInlineMath(about);
+    renderMathJax(about);
   }
 
   function confirmReset() {
