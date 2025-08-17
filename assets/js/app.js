@@ -320,7 +320,7 @@
     } else {
       const levelData = window.contentData[level];
       const chapter = levelData.chapters.find((ch) => ch.id === bab);
-      cfg = { title: chapter.title, description: levelData.description, partial: chapter.partial, exercise: (chapter && chapter.exercise) ? chapter.exercise : levelData.exercise };
+      cfg = { title: chapter.title, description: levelData.description, partial: chapter.partial, exercise: levelData.exercise };
     }
 
     const contentArea = document.getElementById('content-area');
@@ -434,11 +434,7 @@
     const answerIndex = parseInt(selected.value);
     let exercise;
     if (currentLevel === 'dasar') exercise = window.contentData.dasar[currentBab].exercise;
-    else {
-      const levelData = window.contentData[currentLevel];
-      const chapter = levelData.chapters.find((ch) => ch.id === currentBab);
-      exercise = (chapter && chapter.exercise) ? chapter.exercise : levelData.exercise;
-    }
+    else exercise = window.contentData[currentLevel].exercise;
 
     const resultDiv = document.getElementById('exercise-result');
     resultDiv.innerHTML = '';

@@ -48,79 +48,37 @@ const contentData = {
     title: "Level Menengah: Konsep Inti Matematika",
     description: "Mempelajari Bentuk Aljabar, Kesebangunan, dan Data & Diagram",
     chapters: [
-      { id: 4, title: "Bab 4: Bentuk Aljabar", description: "Bentuk aljabar", partial: "/partials/menengah/bab4.html",
-        exercise: {
-          question: "Sederhanakan: 2x + 3x - x",
-          options: [
-            { text: "4x", correct: true },
-            { text: "6x", correct: false },
-            { text: "5x - x", correct: false },
-            { text: "x + 3", correct: false },
-          ],
-        },
-      },
-      { id: 5, title: "Bab 5: Kesebangunan", description: "Kesebangunan", partial: "/partials/menengah/bab5.html",
-        exercise: {
-          question: "Dua bangun sebangun memiliki perbandingan sisi 2:5. Jika sisi pertama 8 cm, sisi kedua adalah...",
-          options: [
-            { text: "16 cm", correct: false },
-            { text: "20 cm", correct: true },
-            { text: "25 cm", correct: false },
-            { text: "32 cm", correct: false },
-          ],
-        },
-      },
-      { id: 6, title: "Bab 6: Data dan Diagram", description: "Data dan Diagram", partial: "/partials/menengah/bab6.html",
-        exercise: {
-          question: "Rata-rata dari data 6, 8, 10, 12, 14 adalah...",
-          options: [
-            { text: "8", correct: false },
-            { text: "10", correct: true },
-            { text: "11", correct: false },
-            { text: "12", correct: false },
-          ],
-        },
-      },
+      { id: 4, title: "Bab 4: Bentuk Aljabar", description: "Bentuk aljabar", partial: "/partials/menengah/bab4.html" },
+      { id: 5, title: "Bab 5: Kesebangunan", description: "Kesebangunan", partial: "/partials/menengah/bab5.html" },
+      { id: 6, title: "Bab 6: Data dan Diagram", description: "Data dan Diagram", partial: "/partials/menengah/bab6.html" },
     ],
+    exercise: {
+      question: "Dua bangun sebangun memiliki perbandingan sisi 2:5. Jika sisi pertama 8 cm, sisi kedua adalah...",
+      options: [
+        { text: "16 cm", correct: false },
+        { text: "20 cm", correct: true },
+        { text: "25 cm", correct: false },
+        { text: "32 cm", correct: false },
+      ],
+    },
   },
   lanjut: {
     title: "Level Lanjut: Aplikasi Kontekstual",
     description: "Menerapkan konsep matematika dalam situasi nyata",
     chapters: [
-      { id: 4, title: "Bab 4: Aljabar dalam Kehidupan Sehari-hari", partial: "/partials/lanjut/bab4.html",
-        exercise: {
-          question: "Jika y = 2x + 5 menyatakan biaya (dalam ribu rupiah) untuk x barang, berapa biaya untuk 7 barang?",
-          options: [
-            { text: "14", correct: false },
-            { text: "17", correct: false },
-            { text: "19", correct: true },
-            { text: "21", correct: false },
-          ],
-        },
-      },
-      { id: 5, title: "Bab 5: Kesebangunan di Dunia Nyata", partial: "/partials/lanjut/bab5.html",
-        exercise: {
-          question: "Sebuah model memiliki skala 1:50. Jika panjang model 6 cm, panjang sebenarnya adalah...",
-          options: [
-            { text: "30 cm", correct: false },
-            { text: "300 cm (3 m)", correct: true },
-            { text: "60 cm", correct: false },
-            { text: "150 cm (1,5 m)", correct: false },
-          ],
-        },
-      },
-      { id: 6, title: "Bab 6: Data untuk Pengambilan Keputusan", partial: "/partials/lanjut/bab6.html",
-        exercise: {
-          question: "Pendapatan harian sebuah kios: 100, 120, 80 (dalam ribu rupiah). Rata-ratanya adalah...",
-          options: [
-            { text: "90", correct: false },
-            { text: "100", correct: true },
-            { text: "105", correct: false },
-            { text: "110", correct: false },
-          ],
-        },
-      },
+      { id: 4, title: "Bab 4: Aljabar dalam Kehidupan Sehari-hari", partial: "/partials/lanjut/bab4.html" },
+      { id: 5, title: "Bab 5: Kesebangunan di Dunia Nyata", partial: "/partials/lanjut/bab5.html" },
+      { id: 6, title: "Bab 6: Data untuk Pengambilan Keputusan", partial: "/partials/lanjut/bab6.html" },
     ],
+    exercise: {
+      question: "Sebuah usaha memiliki biaya tetap Rp500.000 dan biaya variabel Rp2.000 per unit. Jika harga jual Rp5.000 per unit, berapa minimal unit yang harus terjual untuk mencapai titik impas?",
+      options: [
+        { text: "100 unit", correct: false },
+        { text: "150 unit", correct: false },
+        { text: "167 unit", correct: true },
+        { text: "200 unit", correct: false },
+      ],
+    },
   },
 };
 const placementTests = {
