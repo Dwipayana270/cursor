@@ -873,19 +873,23 @@
 
       let text = "";
       if (babId === 4) {
-        if (questionId === 1)
+        if (questionId === 1) {
+          // Esai: Sederhanakan 4x + 7x
           text = userAnswer.includes("11x")
             ? "Jawaban Anda benar! 4x + 7x = 11x."
             : "Jawaban Anda belum tepat. 4x + 7x = (4 + 7)x = 11x.";
-        else if (questionId === 2)
+        } else if (questionId === 2) {
+          // Esai: Hitung 3(x + 4)
           text =
             userAnswer.includes("3x") && userAnswer.includes("12")
               ? "Benar! 3(x + 4) = 3x + 12."
               : "Belum tepat. Gunakan sifat distributif: 3(x + 4) = 3x + 12.";
-        else if (questionId === 3)
+        } else if (questionId === 3) {
+          // Esai: Hitung 2x + 3 jika x=5
           text = userAnswer.includes("13")
             ? "Benar! 2x + 3 saat x=5 adalah 13."
             : "Belum tepat. Substitusikan x=5: 2(5)+3=13.";
+        }
       } else if (babId === 5) {
         if (questionId === 1)
           text = userAnswer.includes("75")
