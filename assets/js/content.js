@@ -108,12 +108,12 @@ const contentData = {
         partial: "/partials/lanjut/bab4.html",
         exercise: {
           question:
-            "Jika y = 2x + 5 menyatakan biaya (dalam ribu rupiah) untuk x barang, berapa biaya untuk 7 barang?",
+            "Jika y = 3x + 2 menyatakan harga (dalam ribu rupiah) dari x tiket, berapa harga untuk 5 tiket?",
           options: [
-            { text: "14", correct: false },
+            { text: "15", correct: false },
             { text: "17", correct: false },
-            { text: "19", correct: true },
-            { text: "21", correct: false },
+            { text: "20", correct: true },
+            { text: "22", correct: false },
           ],
         },
       },
@@ -123,12 +123,12 @@ const contentData = {
         partial: "/partials/lanjut/bab5.html",
         exercise: {
           question:
-            "Sebuah model memiliki skala 1:50. Jika panjang model 6 cm, panjang sebenarnya adalah...",
+            "Tinggi sebuah menara 40 m dan bayangan pohon setinggi 5 m adalah 2 m. Panjang bayangan menara adalah...",
           options: [
-            { text: "30 cm", correct: false },
-            { text: "300 cm (3 m)", correct: true },
-            { text: "60 cm", correct: false },
-            { text: "150 cm (1,5 m)", correct: false },
+            { text: "8 m", correct: false },
+            { text: "12 m", correct: false },
+            { text: "16 m", correct: true },
+            { text: "20 m", correct: false },
           ],
         },
       },
@@ -138,12 +138,12 @@ const contentData = {
         partial: "/partials/lanjut/bab6.html",
         exercise: {
           question:
-            "Pendapatan harian sebuah kios: 100, 120, 80 (dalam ribu rupiah). Rata-ratanya adalah...",
+            "Nilai ujian tiga siswa adalah 70, 85, dan 95. Median dari data tersebut adalah...",
           options: [
+            { text: "70", correct: false },
+            { text: "85", correct: true },
             { text: "90", correct: false },
-            { text: "100", correct: true },
-            { text: "105", correct: false },
-            { text: "110", correct: false },
+            { text: "95", correct: false },
           ],
         },
       },

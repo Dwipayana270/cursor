@@ -8,7 +8,7 @@
     <div class="bg-yellow-50 p-4 rounded border-2 border-gray-300 mt-4">
       <h4 class="font-bold mb-2">Istilah-istilah Penting</h4>
       <p>Amati gambar di bawah</p>
-      <img src='tigagaris.png'>
+      <img src='/assets/img/tigagaris.png'>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
         <div class="bg-white p-4 rounded border-2 border-gray-300">
           <h5 class="font-bold mb-2">Berdasarkan ilustrasi di atas</h5>
@@ -119,115 +119,71 @@
   </div>
 
   <div class="neo-brutal bg-indigo-100 p-6 rounded-lg mt-6">
-    <h3 class="text-2xl font-bold mb-4">📝 Contoh Soal</h3>
+    <h3 class="text-2xl font-bold mb-4">📝 Contoh Soal Kesebangunan</h3>
     <div class="carousel-container">
       <div class="carousel">
+        <!-- Soal 1 -->
         <div class="carousel-item bg-white p-4 rounded border-2 border-gray-300">
           <span
             class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-yellow-400 border-2 border-black text-black">Pertanyaan
             1</span>
-          <p class="text-lg font-semibold mt-2 mb-2">Sebuah peta memiliki skala 1:400.000. Jarak dua kota di peta adalah
-            12 cm. Berapa jarak sebenarnya antara kedua kota tersebut dalam kilometer?</p>
+          <p class="text-lg font-semibold mt-2 mb-2">Sebuah segitiga kecil memiliki sisi 6 cm, 8 cm, dan 10 cm. Segitiga
+            besar sebangun dengan segitiga kecil. Jika sisi terpendek segitiga besar adalah 12 cm, berapakah panjang
+            sisi-sisi lainnya?</p>
           <button class="btn-brutal bg-blue-400 text-white px-4 py-2 text-sm mb-2"
             onclick="toggleSolution('solution5-1')">Lihat Penyelesaian</button>
           <div id="solution5-1" class="solution-content hidden">
             <div class="bg-blue-50 p-3 rounded border-2 border-blue-200">
               <p class="font-semibold">Penyelesaian:</p>
-              <p>Skala peta = 1:400.000</p>
-              <p>Jarak di peta = 12 cm</p>
-              <p>Jarak sebenarnya = 12 cm × 400.000 = 4.800.000 cm = 48.000 m = 48 km</p>
-              <p class="mt-2 text-sm">Jadi, jarak sebenarnya antara kedua kota adalah 48 km</p>
+              <p>Faktor skala $k = \tfrac{12}{6} = 2$</p>
+              <p>Sisi kedua $= 8 \times 2 = 16 \text{ cm}$</p>
+              <p>Sisi ketiga $= 10 \times 2 = 20 \text{ cm}$</p>
+              <p class="mt-2"><strong>Jawaban:</strong> Sisi-sisi segitiga besar adalah $12 \text{ cm}, 16 \text{ cm},
+                20
+                \text{ cm}$.</p>
             </div>
           </div>
         </div>
 
+        <!-- Soal 2 -->
         <div class="carousel-item bg-white p-4 rounded border-2 border-gray-300 hidden">
           <span
             class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-yellow-400 border-2 border-black text-black">Pertanyaan
             2</span>
-          <p class="text-lg font-semibold mt-2 mb-2">Sebuah foto berukuran 9 cm × 12 cm akan diperbesar sehingga
-            lebarnya
-            menjadi 18 cm. Berapa panjang foto setelah diperbesar?</p>
+          <p class="text-lg font-semibold mt-2 mb-2">Seorang siswa setinggi 1,6 m memiliki bayangan 2 m. Pada saat yang
+            sama, bayangan sebuah tiang bendera adalah 10 m. Berapakah tinggi tiang bendera tersebut?</p>
           <button class="btn-brutal bg-blue-400 text-white px-4 py-2 text-sm mb-2"
-            onclick="toggleSolution('solution5-2')">Lihat
-            Penyelesaian</button>
+            onclick="toggleSolution('solution5-2')">Lihat Penyelesaian</button>
           <div id="solution5-2" class="solution-content hidden">
             <div class="bg-blue-50 p-3 rounded border-2 border-blue-200">
               <p class="font-semibold">Penyelesaian:</p>
-              <div class="mt-3">
-                <p class="font-medium">Langkah 1: Identifikasi informasi yang diketahui</p>
-                <ul class="list-disc pl-5 mt-1">
-                  <li>Ukuran asli foto = 9 cm × 12 cm</li>
-                  <li>Lebar setelah diperbesar = 18 cm</li>
-                </ul>
-              </div>
-
-              <div class="mt-3">
-                <p class="font-medium">Langkah 2: Tentukan konsep yang digunakan</p>
-                <p>Karena foto diperbesar dengan proporsi yang sama, kita menggunakan konsep perbandingan (rasio).</p>
-              </div>
-
-              <div class="mt-3">
-                <p class="font-medium">Langkah 3: Hitung faktor skala perbesaran</p>
-                <p>Faktor skala = Lebar baru ÷ Lebar asli</p>
-                <p>Faktor skala = 18 cm ÷ 9 cm = 2</p>
-                <p class="text-sm text-gray-600">Artinya foto diperbesar 2 kali lipat.</p>
-              </div>
-
-              <div class="mt-3">
-                <p class="font-medium">Langkah 4: Hitung panjang baru foto</p>
-                <p>Panjang baru = Panjang asli × Faktor skala</p>
-                <p>Panjang baru = 12 cm × 2 = 24 cm</p>
-              </div>
-
-              <div class="mt-3">
-                <p class="font-medium">Alternatif penyelesaian dengan perbandingan:</p>
-                <p>Lebar asli : Lebar baru = Panjang asli : Panjang baru</p>
-                <p>9 : 18 = 12 : Panjang baru</p>
-                <p>9 × Panjang baru = 18 × 12</p>
-                <p>Panjang baru = (18 × 12) ÷ 9 = 216 ÷ 9 = 24 cm</p>
-              </div>
-
-              <div class="mt-3 p-2 bg-blue-100 rounded">
-                <p class="font-semibold">Kesimpulan:</p>
-                <p>Jadi, panjang foto setelah diperbesar adalah <strong>24 cm</strong>.</p>
-              </div>
+              <p>Gunakan kesebangunan segitiga:</p>
+              <p>$\frac{\text{tinggi siswa}}{\text{bayangan siswa}} = \frac{\text{tinggi tiang}}{\text{bayangan
+                tiang}}$
+              </p>
+              <p>$\frac{1,6}{2} = \frac{T}{10}$</p>
+              <p>$T = \frac{1,6}{2} \times 10 = 0,8 \times 10 = 8$</p>
+              <p class="mt-2"><strong>Jawaban:</strong> Tinggi tiang bendera adalah $8 \text{ m}$.</p>
             </div>
           </div>
         </div>
 
+        <!-- Soal 3 -->
         <div class="carousel-item bg-white p-4 rounded border-2 border-gray-300 hidden">
           <span
             class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-yellow-400 border-2 border-black text-black">Pertanyaan
             3</span>
-          <p class="text-lg font-semibold mt-2 mb-2">Sebuah menara tingginya 50 m memiliki bayangan 25 m. Pada saat yang
-            sama,
-            sebuah tiang bendera memiliki bayangan 5 m. Berapa tinggi tiang bendera tersebut?</p>
+          <p class="text-lg font-semibold mt-2 mb-2">Sebuah persegi panjang berukuran 5 cm × 12 cm sebangun dengan
+            persegi
+            panjang lain. Jika lebar persegi panjang kedua adalah 7,5 cm, berapakah panjangnya?</p>
           <button class="btn-brutal bg-blue-400 text-white px-4 py-2 text-sm mb-2"
-            onclick="toggleSolution('solution5-3')">Lihat
-            Penyelesaian</button>
+            onclick="toggleSolution('solution5-3')">Lihat Penyelesaian</button>
           <div id="solution5-3" class="solution-content hidden">
             <div class="bg-blue-50 p-3 rounded border-2 border-blue-200">
               <p class="font-semibold">Penyelesaian:</p>
-              <p class="mt-2"><strong>Diketahui:</strong></p>
-              <ul class="list-disc pl-5 mt-1">
-                <li>Tinggi menara = 50 m</li>
-                <li>Bayangan menara = 25 m</li>
-                <li>Bayangan tiang bendera = 5 m</li>
-              </ul>
-
-              <p class="mt-2"><strong>Ditanyakan:</strong> Tinggi tiang bendera</p>
-
-              <p class="mt-2"><strong>Konsep:</strong> Kesebangunan segitiga (perbandingan)</p>
-
-              <p class="mt-2"><strong>Penyelesaian:</strong></p>
-              <p>50 : t = 25 : 5</p>
-              <p>50 × 5 = 25 × t</p>
-              <p>250 = 25t</p>
-              <p>t = 250 ÷ 25</p>
-              <p>t = 10 m</p>
-
-              <p class="mt-2"><strong>Jawaban:</strong> Tinggi tiang bendera adalah 10 m</p>
+              <p>Faktor skala $k = \frac{7,5}{5} = 1,5$</p>
+              <p>Panjang kedua $= 12 \times 1,5 = 18 \text{ cm}$</p>
+              <p class="mt-2"><strong>Jawaban:</strong> Panjang persegi panjang kedua adalah $18 \text{ cm}$.</p>
             </div>
           </div>
         </div>
@@ -239,6 +195,7 @@
       </div>
     </div>
   </div>
+
 
   <div class="bg-yellow-100 border-4 border-black rounded-lg p-6">
     <h3 class="text-2xl font-bold mb-4">📝 Latihan Mandiri</h3>
