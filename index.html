@@ -1,195 +1,209 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-Modul Matematika berbasis TaRL</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/assets/css/styles.css" />
 
-    <script>
-      window.MathJax = {
-        loader: { load: ["input/asciimath", "output/chtml", "ui/menu"] },
-        asciimath: { delimiters: [["$", "$"], ["`", "`"]] },
-        tex: { inlineMath: [["$", "$"], ["\\(", "\\)"]] },
-      };
-    </script>
-  </head>
-  <body class="p-4 md:p-8">
-    <div class="max-w-6xl mx-auto">
-      <header class="neo-brutal-nohover rounded-brutal p-6 mb-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="text-center md:text-left mb-4 md:mb-0">
-            <h1 class="text-4xl md:text-5xl font-black mb-2 text-blue-600">E-MODUL MATEMATIKA</h1>
-            <p class="text-xl font-bold">Bentuk Aljabar, Kesebangunan, dan Data dan Diagram</p>
-            <p class="text-lg">E-modul berbasis TaRL</p>
-          </div>
-          <div class="flex space-x-4">
-            <button onclick="showProgress()" class="btn-brutal text-white bg-blue-400">PROGRESS</button>
-            <button onclick="confirmReset()" class="btn-reset">RESET</button>
-            <button onclick="showAbout()" class="btn-brutal text-black">TENTANG</button>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Modul Matematika berbasis TaRL</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+
+  <script>
+    window.MathJax = {
+      loader: { load: ["input/asciimath", "output/chtml", "ui/menu"] },
+      asciimath: { delimiters: [["$", "$"], ["`", "`"]] },
+      tex: { inlineMath: [["$", "$"], ["\\(", "\\)"]] },
+    };
+  </script>
+</head>
+
+<body class="p-4 md:p-8">
+  <div class="max-w-6xl mx-auto">
+    <header class="neo-brutal-nohover rounded-brutal p-6 mb-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="text-center md:text-left mb-4 md:mb-0">
+          <h1 class="text-4xl md:text-5xl font-black mb-2 text-blue-600">E-MODUL MATEMATIKA</h1>
+          <p class="text-xl font-bold">Bentuk Aljabar, Kesebangunan, dan Data dan Diagram</p>
+          <p class="text-lg">E-modul berbasis TaRL</p>
         </div>
-      </header>
+        <div class="flex space-x-4">
+          <button onclick="showProgress()" class="btn-brutal text-white bg-blue-400">PROGRESS</button>
+          <button onclick="confirmReset()" class="btn-reset">RESET</button>
+          <button onclick="showAbout()" class="btn-brutal text-black">TENTANG</button>
+        </div>
+      </div>
+    </header>
 
-      <main id="main-content">
-        <div id="home-screen" class="grid grid-cols-1 md:grid-cols-3 gap-8 hidden">
-          <div class="neo-brutal-blue rounded-brutal p-8 text-center">
-            <h2 class="text-3xl font-black mb-4">BAB 4</h2>
-            <h3 class="text-2xl font-bold mb-6">Bentuk Aljabar</h3>
-            <div class="mb-6">
-              <div class="text-5xl mb-4">𝒙 + 𝒚</div>
-              <p class="text-lg">Pelajari variabel, konstanta, dan operasi aljabar</p>
-            </div>
-            <div id="bab4-status" class="mb-4 font-bold"></div>
-            <button onclick="startBab(4)" class="btn-brutal bg-white text-black w-full py-4 text-xl">MULAI BELAJAR</button>
+    <main id="main-content">
+      <div id="home-screen" class="grid grid-cols-1 md:grid-cols-3 gap-8 hidden">
+        <div class="neo-brutal-blue rounded-brutal p-8 text-center">
+          <h2 class="text-3xl font-black mb-4">BAB 4</h2>
+          <h3 class="text-2xl font-bold mb-6">Bentuk Aljabar</h3>
+          <div class="mb-6">
+            <div class="text-5xl mb-4">𝒙 + 𝒚</div>
+            <p class="text-lg">Pelajari variabel, konstanta, dan operasi aljabar</p>
           </div>
-
-          <div class="neo-brutal-green rounded-brutal p-8 text-center">
-            <h2 class="text-3xl font-black mb-4">BAB 5</h2>
-            <h3 class="text-2xl font-bold mb-6">Kesebangunan</h3>
-            <div class="mb-6">
-              <div class="text-5xl mb-4">△ ∼ △</div>
-              <p class="text-lg">Pelajari hubungan antar sudut dan kesebangunan bangun datar</p>
-            </div>
-            <div id="bab5-status" class="mb-4 font-bold"></div>
-            <button onclick="startBab(5)" class="btn-brutal bg-white text-black w-full py-4 text-xl">MULAI BELAJAR</button>
-          </div>
-
-          <div class="neo-brutal-red rounded-brutal p-8 text-center text-white">
-            <h2 class="text-3xl font-black mb-4">BAB 6</h2>
-            <h3 class="text-2xl font-bold mb-6">Data dan Diagram</h3>
-            <div class="mb-6">
-              <div class="text-5xl mb-4">📊</div>
-              <p class="text-lg">Pelajari statistika dan penyajian data</p>
-            </div>
-            <div id="bab6-status" class="mb-4 font-bold"></div>
-            <button onclick="startBab(6)" class="btn-brutal bg-white text-black w-full py-4 text-xl">MULAI BELAJAR</button>
-          </div>
+          <div id="bab4-status" class="mb-4 font-bold"></div>
+          <button onclick="startBab(4)" class="btn-brutal bg-white text-black w-full py-4 text-xl">MULAI
+            BELAJAR</button>
         </div>
 
-        <div id="placement-screen" class="hidden">
-          <div class="neo-brutal-nohover rounded-brutal p-8 mb-8">
-            <h2 class="text-3xl font-black mb-6 text-center">TES PENEMPATAN</h2>
-            <p class="text-xl mb-8 text-center">Jawab pertanyaan untuk menentukan level pembelajaran Anda</p>
-            <div id="placement-questions" class="space-y-8"></div>
-            <div class="flex justify-center mt-8">
-              <button id="submit-placement" onclick="submitPlacement()" class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">KIRIM JAWABAN</button>
-            </div>
+        <div class="neo-brutal-green rounded-brutal p-8 text-center">
+          <h2 class="text-3xl font-black mb-4">BAB 5</h2>
+          <h3 class="text-2xl font-bold mb-6">Kesebangunan</h3>
+          <div class="mb-6">
+            <div class="text-5xl mb-4">△ ∼ △</div>
+            <p class="text-lg">Pelajari hubungan antar sudut dan kesebangunan bangun datar</p>
           </div>
+          <div id="bab5-status" class="mb-4 font-bold"></div>
+          <button onclick="startBab(5)" class="btn-brutal bg-white text-black w-full py-4 text-xl">MULAI
+            BELAJAR</button>
         </div>
 
-        <div id="learning-screen" class="hidden">
-          <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/4">
-              <div class="neo-brutal-nohover rounded-brutal p-6 sticky top-8">
-                <h3 class="text-2xl font-black mb-4">NAVIGASI</h3>
-                <div class="space-y-4">
-                  <button onclick="showHome()" class="btn-brutal bg-gray-200 w-full py-3 text-lg">← BERANDA</button>
-                  <div id="level-indicator" class="bg-yellow-400 p-4 rounded-lg text-center font-bold text-lg"></div>
-                  <div class="mt-6">
-                    <h4 class="font-bold mb-2">PROGRESS</h4>
-                    <div class="progress-bar">
-                      <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
-                    </div>
-                    <p id="progress-text" class="text-center mt-2 font-bold">0%</p>
+        <div class="neo-brutal-red rounded-brutal p-8 text-center text-white">
+          <h2 class="text-3xl font-black mb-4">BAB 6</h2>
+          <h3 class="text-2xl font-bold mb-6">Data dan Diagram</h3>
+          <div class="mb-6">
+            <div class="text-5xl mb-4">📊</div>
+            <p class="text-lg">Pelajari statistika dan penyajian data</p>
+          </div>
+          <div id="bab6-status" class="mb-4 font-bold"></div>
+          <button onclick="startBab(6)" class="btn-brutal bg-white text-black w-full py-4 text-xl">MULAI
+            BELAJAR</button>
+        </div>
+      </div>
+
+      <div id="placement-screen" class="hidden">
+        <div class="neo-brutal-nohover rounded-brutal p-8 mb-8">
+          <h2 class="text-3xl font-black mb-6 text-center">TES PENEMPATAN</h2>
+          <p class="text-xl mb-8 text-center">Jawab pertanyaan untuk menentukan level pembelajaran Anda</p>
+          <div id="placement-questions" class="space-y-8"></div>
+          <div class="flex justify-center mt-8">
+            <button id="submit-placement" onclick="submitPlacement()"
+              class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">KIRIM JAWABAN</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="learning-screen" class="hidden">
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="md:w-1/4">
+            <div class="neo-brutal-nohover rounded-brutal p-6 sticky top-8">
+              <h3 class="text-2xl font-black mb-4">NAVIGASI</h3>
+              <div class="space-y-4">
+                <button onclick="showHome()" class="btn-brutal bg-gray-200 w-full py-3 text-lg">🏠 Beranda</button>
+                <div id="level-indicator" class="bg-yellow-400 p-4 rounded-lg text-center font-bold text-lg"></div>
+                <div class="mt-6">
+                  <h4 class="font-bold mb-2">PROGRESS</h4>
+                  <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
                   </div>
-                  <div class="mt-8">
-                    <h4 class="font-bold mb-4">PETA PERJALANAN</h4>
-                    <div id="journey-map" class="space-y-2"></div>
-                  </div>
+                  <p id="progress-text" class="text-center mt-2 font-bold">0%</p>
+                </div>
+                <div class="mt-8">
+                  <h4 class="font-bold mb-4">PETA PERJALANAN</h4>
+                  <div id="journey-map" class="space-y-2"></div>
                 </div>
               </div>
             </div>
-            <div class="md:w-3/4">
-              <div id="content-area" class="neo-brutal-nohover rounded-brutal p-8"></div>
-            </div>
+          </div>
+          <div class="md:w-3/4">
+            <div id="content-area" class="neo-brutal-nohover rounded-brutal p-8"></div>
           </div>
         </div>
+      </div>
 
-        <div id="evaluation-screen" class="hidden">
-          <div class="neo-brutal-nohover rounded-brutal p-8 mb-8">
-            <h2 class="text-3xl font-black mb-6 text-center">EVALUASI AKHIR</h2>
-            <p class="text-xl mb-8 text-center">Kerjakan 5 soal berikut untuk menguji pemahaman Anda</p>
-            <div id="evaluation-questions" class="space-y-8"></div>
-            <div class="flex justify-center mt-8">
-              <button id="submit-evaluation" onclick="submitEvaluation()" class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">KIRIM JAWABAN</button>
-            </div>
-            <div class="h-12"></div>
-            <div id="evaluation-result" class="hidden mt-8 text-center"></div>
+      <div id="evaluation-screen" class="hidden">
+        <div class="neo-brutal-nohover rounded-brutal p-8 mb-8">
+          <h2 class="text-3xl font-black mb-6 text-center">EVALUASI AKHIR</h2>
+          <p class="text-xl mb-8 text-center">Kerjakan 5 soal berikut untuk menguji pemahaman Anda</p>
+          <div id="evaluation-questions" class="space-y-8"></div>
+          <div class="flex justify-center mt-8">
+            <button id="submit-evaluation" onclick="submitEvaluation()"
+              class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">KIRIM JAWABAN</button>
           </div>
+          <div class="h-12"></div>
+          <div id="evaluation-result" class="hidden mt-8 text-center"></div>
         </div>
+      </div>
 
-        <div id="progress-screen" class="hidden">
-          <div class="neo-brutal-nohover rounded-brutal p-8">
-            <h2 class="text-3xl font-black mb-6 text-center">PROGRESS BELAJAR</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div class="neo-brutal-blue rounded-brutal p-6">
-                <h3 class="text-2xl font-black mb-4">BAB 4: Bentuk Aljabar</h3>
-                <div id="bab4-progress" class="space-y-4"></div>
-              </div>
-              <div class="neo-brutal-green rounded-brutal p-6">
-                <h3 class="text-2xl font-black mb-4">BAB 5: Kesebangunan</h3>
-                <div id="bab5-progress" class="space-y-4"></div>
-              </div>
-              <div class="neo-brutal-red rounded-brutal p-6 text-white">
-                <h3 class="text-2xl font-black mb-4">BAB 6: Data dan Diagram</h3>
-                <div id="bab6-progress" class="space-y-4"></div>
-              </div>
+      <div id="progress-screen" class="hidden">
+        <div class="neo-brutal-nohover rounded-brutal p-8">
+          <h2 class="text-3xl font-black mb-6 text-center">PROGRESS BELAJAR</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="neo-brutal-blue rounded-brutal p-6">
+              <h3 class="text-2xl font-black mb-4">BAB 4: Bentuk Aljabar</h3>
+              <div id="bab4-progress" class="space-y-4"></div>
             </div>
-            <div class="flex justify-center mt-8 space-x-4">
-              <button onclick="confirmReset()" class="btn-reset bg-red-500 text-white px-8 py-3 text-xl">RESET PROGRESS</button>
-              <button onclick="showHome()" class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">KEMBALI</button>
+            <div class="neo-brutal-green rounded-brutal p-6">
+              <h3 class="text-2xl font-black mb-4">BAB 5: Kesebangunan</h3>
+              <div id="bab5-progress" class="space-y-4"></div>
+            </div>
+            <div class="neo-brutal-red rounded-brutal p-6 text-white">
+              <h3 class="text-2xl font-black mb-4">BAB 6: Data dan Diagram</h3>
+              <div id="bab6-progress" class="space-y-4"></div>
             </div>
           </div>
+          <div class="flex justify-center mt-8 space-x-4">
+            <button onclick="confirmReset()" class="btn-reset bg-red-500 text-white px-8 py-3 text-xl">RESET
+              PROGRESS</button>
+            <button onclick="showHome()"
+              class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">KEMBALI</button>
+          </div>
         </div>
+      </div>
 
-        <div id="about-screen" class="hidden">
-          <div class="neo-brutal-nohover rounded-brutal p-8">
-            <h2 class="text-3xl font-black mb-6 text-center">TENTANG E-MODUL INI</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div class="neo-brutal-yellow rounded-brutal p-6">
-                <h3 class="text-2xl font-black mb-4">PENGEMBANG</h3>
-                <div class="space-y-4">
-                  <div>
-                    <h4 class="text-xl font-bold">Pengembang E-Modul</h4>
-                    <p class="mt-2">E-modul ini dikembangkan oleh I Made Indra Adhi Wikanta untuk meningkatkan kualitas pembelajaran matematika di Indonesia.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="neo-brutal-blue rounded-brutal p-6 text-white">
-                <h3 class="text-2xl font-black mb-4">TENTANG E-MODUL</h3>
-                <div class="space-y-4">
-                  <div>
-                    <h4 class="text-xl font-bold">Deskripsi</h4>
-                    <p class="mt-2">E-modul ini dirancang dengan pendekatan Teaching at the Right Level (TaRL) untuk membantu siswa belajar matematika sesuai dengan kemampuan mereka.</p>
-                  </div>
-                  <div>
-                    <h4 class="text-xl font-bold">Fitur</h4>
-                    <ul class="list-disc pl-6 mt-2">
-                      <li>Tes penempatan untuk menentukan level pembelajaran</li>
-                      <li>Materi pembelajaran interaktif</li>
-                      <li>Latihan soal dengan feedback instan</li>
-                      <li>Terintegrasi GeoGebra dan Gemini AI</li>
-                      <li>Evaluasi akhir untuk menguji pemahaman</li>
-                      <li>Tracking progress pembelajaran</li>
-                    </ul>
-                  </div>
+      <div id="about-screen" class="hidden">
+        <div class="neo-brutal-nohover rounded-brutal p-8">
+          <h2 class="text-3xl font-black mb-6 text-center">TENTANG E-MODUL INI</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="neo-brutal-yellow rounded-brutal p-6">
+              <h3 class="text-2xl font-black mb-4">PENGEMBANG</h3>
+              <div class="space-y-4">
+                <div>
+                  <h4 class="text-xl font-bold">Pengembang E-Modul</h4>
+                  <p class="mt-2">E-modul ini dikembangkan oleh I Made Indra Adhi Wikanta untuk meningkatkan kualitas
+                    pembelajaran matematika di Indonesia.</p>
                 </div>
               </div>
             </div>
-            <div class="flex justify-center mt-8">
-              <button onclick="showHome()" class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">KEMBALI</button>
+            <div class="neo-brutal-blue rounded-brutal p-6 text-white">
+              <h3 class="text-2xl font-black mb-4">TENTANG E-MODUL</h3>
+              <div class="space-y-4">
+                <div>
+                  <h4 class="text-xl font-bold">Deskripsi</h4>
+                  <p class="mt-2">E-modul ini dirancang dengan pendekatan Teaching at the Right Level (TaRL) untuk
+                    membantu siswa belajar matematika sesuai dengan kemampuan mereka.</p>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold">Fitur</h4>
+                  <ul class="list-disc pl-6 mt-2">
+                    <li>Tes penempatan untuk menentukan level pembelajaran</li>
+                    <li>Materi pembelajaran interaktif</li>
+                    <li>Latihan soal dengan feedback instan</li>
+                    <li>Terintegrasi GeoGebra dan Gemini AI</li>
+                    <li>Evaluasi akhir untuk menguji pemahaman</li>
+                    <li>Tracking progress pembelajaran</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
+          <div class="flex justify-center mt-8">
+            <button onclick="showHome()"
+              class="btn-brutal neo-brutal-yellow text-black px-8 py-3 text-xl">KEMBALI</button>
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
+  </div>
 
-    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
-    <script src="/assets/js/content.js"></script>
-    <script src="/assets/js/app.js"></script>
-    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
-  </body>
+  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+  <script src="/assets/js/content.js"></script>
+  <script src="/assets/js/app.js"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
+</body>
+
 </html>
