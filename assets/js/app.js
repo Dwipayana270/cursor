@@ -868,7 +868,14 @@
       feedbackDiv.innerHTML = "";
       const p = document.createElement("p");
       const strong = document.createElement("strong");
-      strong.textContent = "Gemini AI: ";
+      strong.className = "inline-flex items-center gap-1";
+      const icon = document.createElement("img");
+      icon.src = "assets/img/gemini-ai.svg";
+      icon.alt = "Gemini AI";
+      icon.width = 14;
+      icon.height = 14;
+      strong.appendChild(icon);
+      strong.appendChild(document.createTextNode(" Gemini AI: "));
       p.appendChild(strong);
 
       let text = "";
