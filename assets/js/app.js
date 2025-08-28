@@ -868,7 +868,7 @@
       feedbackDiv.innerHTML = "";
       const p = document.createElement("p");
       const strong = document.createElement("strong");
-      strong.textContent = "Feedback: ";
+      strong.textContent = "Gemini AI: ";
       p.appendChild(strong);
 
       let text = "";
