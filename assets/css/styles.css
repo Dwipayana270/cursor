@@ -1,11 +1,10 @@
 body { font-family: "Rubik", sans-serif; background-color: #f0f0f0; }
 .neo-brutal { background-color: #fff; border: 4px solid #000; box-shadow: 8px 8px 0 #000; transition: all 0.2s ease; }
-/* Hover animation only on devices that actually support hover */
-@media (hover: hover) and (pointer: fine) {
-  .neo-brutal:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0 #000; }
-}
-/* Disable hover effect for content area */
-#content-area .neo-brutal:hover { transform: none; box-shadow: 8px 8px 0 #000; }
+/* Flatten neo-brutal inside content area; only Latihan Mandiri has 3D */
+#content-area .neo-brutal, #content-area .neo-brutal-nohover, #content-area .neo-brutal-yellow, #content-area .neo-brutal-blue, #content-area .neo-brutal-red, #content-area .neo-brutal-green { box-shadow: none; }
+
+/* 3D look for Latihan Mandiri inside content */
+.latihan-3d { box-shadow: 8px 8px 0 #000; }
 
 .neo-brutal-nohover { background-color: #fff; border: 4px solid #000; box-shadow: 8px 8px 0 #000; }
 .neo-brutal-yellow { background-color: #ffd23f; border: 4px solid #000; box-shadow: 8px 8px 0 #000; }
