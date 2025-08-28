@@ -578,7 +578,7 @@
 
     questions.forEach((q, index) => {
       const card = document.createElement("div");
-      card.className = "neo-brutal rounded-brutal p-6";
+      card.className = "bg-white rounded-brutal p-6 border-2 border-gray-300 eval-card";
       const label = document.createElement("span");
       label.className =
         "inline-block px-3 py-1 rounded-full text-xs font-bold bg-yellow-400 border-2 border-black text-black";
@@ -596,6 +596,9 @@
         input.name = `eq${index}`;
         input.value = String(optIndex);
         input.className = "w-5 h-5";
+        input.addEventListener("change", () => {
+          card.classList.add("answered");
+        });
         const span = document.createElement("span");
         span.textContent = opt.text;
         label.appendChild(input);
