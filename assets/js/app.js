@@ -3,6 +3,49 @@
   let currentLevel = null;
   let placementAnswers = {};
   let evaluationAnswers = {};
+  let geminiApiKey = null;
+
+  function setGeminiApiKey(key) {
+    geminiApiKey = key || null;
+    try {
+      if (key) localStorage.setItem("GEMINI_API_KEY", key);
+      else localStorage.removeItem("GEMINI_API_KEY");
+    } catch (_) {}
+  }
+
+  function getGeminiApiKey() {
+    if (geminiApiKey) return geminiApiKey;
+    try {
+      const k = localStorage.getItem("GEMINI_API_KEY");
+      if (k) geminiApiKey = k;
+    } catch (_) {}
+    return geminiApiKey;
+  }
+
+  async function generateGeminiFeedback(question, answer) {
+    const apiKey = getGeminiApiKey();
+    if (!apiKey) return "";
+    const endpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent";
+    const prompt =
+      "Beri umpan balik singkat (<=25 kata), dalam bahasa Indonesia yang ramah, untuk jawaban siswa. Tunjukkan koreksi jika perlu.\n" +
+      "Pertanyaan: " + question + "\n" +
+      "Jawaban siswa: " + answer;
+    try {
+      const res = await fetch(endpoint + "?key=" + encodeURIComponent(apiKey), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ role: "user", parts: [{ text: prompt }] }],
+        }),
+      });
+      if (!res.ok) return "";
+      const data = await res.json();
+      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+      return text.trim();
+    } catch (_) {
+      return "";
+    }
+  }
 
   // GeoGebra applet 1
   const parameters = {
@@ -864,7 +907,10 @@
     loading.textContent = "Memproses jawaban...";
     feedbackDiv.appendChild(loading);
 
-    setTimeout(() => {
+    try {
+      const questionText = (container.querySelector("p")?.textContent || "").trim();
+      const aiText = await generateGeminiFeedback(questionText, userAnswer);
+
       feedbackDiv.innerHTML = "";
       const p = document.createElement("p");
       const strong = document.createElement("strong");
@@ -878,53 +924,54 @@
       strong.appendChild(document.createTextNode(" Gemini AI: "));
       p.appendChild(strong);
 
-      let text = "";
-      if (babId === 4) {
-        if (questionId === 1) {
-          // Esai: Sederhanakan 4x + 7x
-          text = userAnswer.includes("11x")
-            ? "Jawaban Anda benar! 4x + 7x = 11x."
-            : "Jawaban Anda belum tepat. 4x + 7x = (4 + 7)x = 11x.";
-        } else if (questionId === 2) {
-          // Esai: Hitung 3(x + 4)
-          text =
-            userAnswer.includes("3x") && userAnswer.includes("12")
-              ? "Benar! 3(x + 4) = 3x + 12."
-              : "Belum tepat. Gunakan sifat distributif: 3(x + 4) = 3x + 12.";
-        } else if (questionId === 3) {
-          // Esai: Hitung 2x + 3 jika x=5
-          text = userAnswer.includes("13")
-            ? "Benar! 2x + 3 saat x=5 adalah 13."
-            : "Belum tepat. Substitusikan x=5: 2(5)+3=13.";
+      let text = aiText || "";
+      if (!text) {
+        if (babId === 4) {
+          if (questionId === 1) {
+            text = userAnswer.includes("11x")
+              ? "Jawaban Anda benar! 4x + 7x = 11x."
+              : "Jawaban Anda belum tepat. 4x + 7x = (4 + 7)x = 11x.";
+          } else if (questionId === 2) {
+            text =
+              userAnswer.includes("3x") && userAnswer.includes("12")
+                ? "Benar! 3(x + 4) = 3x + 12."
+                : "Belum tepat. Gunakan sifat distributif: 3(x + 4) = 3x + 12.";
+          } else if (questionId === 3) {
+            text = userAnswer.includes("13")
+              ? "Benar! 2x + 3 saat x=5 adalah 13."
+              : "Belum tepat. Substitusikan x=5: 2(5)+3=13.";
+          }
+        } else if (babId === 5) {
+          if (questionId === 1)
+            text = userAnswer.includes("75")
+              ? "Benar! 180° - 55° - 50° = 75°."
+              : "Belum tepat. Jumlah sudut segitiga 180° → 75°.";
+          else if (questionId === 2)
+            text = userAnswer.includes("10")
+              ? "Benar! 2/t = 3/15 → t=10 m."
+              : "Belum tepat. Gunakan perbandingan kesebangunan: t=10 m.";
+          else if (questionId === 3)
+            text = userAnswer.includes("4.8")
+              ? "Benar! Perbandingan sisi memberi DE = 20/7 ≈ 2.86 cm."
+              : "Belum tepat. Gunakan perbandingan sisi segitiga sebangun.";
+        } else if (babId === 6) {
+          if (questionId === 1)
+            text = userAnswer.includes("April")
+              ? "Benar! 7 GB pada bulan April."
+              : "Perhatikan kembali diagram batang: cari 7 GB.";
+          else if (questionId === 2)
+            text = `Jawaban Anda: ${userAnswer}. Koreksi: 1) Numerik 2) Kategorik 3) Kategorik 4) Numerik`;
+          else if (questionId === 3)
+            text = "Pastikan setiap kategori dihitung persentasenya dan proporsinya sesuai.";
         }
-      } else if (babId === 5) {
-        if (questionId === 1)
-          text = userAnswer.includes("75")
-            ? "Benar! 180° - 55° - 50° = 75°."
-            : "Belum tepat. Jumlah sudut segitiga 180° → 75°.";
-        else if (questionId === 2)
-          text = userAnswer.includes("10")
-            ? "Benar! 2/t = 3/15 → t=10 m."
-            : "Belum tepat. Gunakan perbandingan kesebangunan: t=10 m.";
-        else if (questionId === 3)
-          text = userAnswer.includes("4.8")
-            ? "Benar! Perbandingan sisi memberi DE = 20/7 ≈ 2.86 cm."
-            : "Belum tepat. Gunakan perbandingan sisi segitiga sebangun.";
-      } else if (babId === 6) {
-        if (questionId === 1)
-          text = userAnswer.includes("April")
-            ? "Benar! 7 GB pada bulan April."
-            : "Perhatikan kembali diagram batang: cari 7 GB.";
-        else if (questionId === 2)
-          text = `Jawaban Anda: ${userAnswer}. Koreksi: 1) Numerik 2) Kategorik 3) Kategorik 4) Numerik`;
-        else if (questionId === 3)
-          text =
-            "Pastikan setiap kategori dihitung persentasenya dan proporsinya sesuai.";
       }
+
       const tp = document.createTextNode(text);
       p.appendChild(tp);
       feedbackDiv.appendChild(p);
-    }, 800);
+    } catch (err) {
+      feedbackDiv.innerHTML = "Terjadi kesalahan saat menghubungi Gemini AI.";
+    }
   }
 
   window.startBab = startBab;
@@ -943,6 +990,7 @@
   window.changeSlide = changeSlide;
   window.checkAnswer = checkAnswer;
   window.checkEssayAnswer = checkEssayAnswer;
+  window.setGeminiApiKey = setGeminiApiKey;
 
   document.addEventListener("DOMContentLoaded", initApp);
 })();
