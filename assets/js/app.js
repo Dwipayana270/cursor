@@ -47,6 +47,11 @@
     }
   }
 
+  function useKamuPronouns(text) {
+    if (!text) return text;
+    return text.replace(/\bAnda\b/g, "kamu").replace(/\banda\b/g, "kamu");
+  }
+
   // GeoGebra applet 1
   const parameters = {
     id: "ggbApplet",
@@ -924,13 +929,13 @@
       strong.appendChild(document.createTextNode(" Gemini AI: "));
       p.appendChild(strong);
 
-      let text = aiText || "";
+      let text = useKamuPronouns(aiText || "");
       if (!text) {
         if (babId === 4) {
           if (questionId === 1) {
             text = userAnswer.includes("11x")
-              ? "Jawaban Anda benar! 4x + 7x = 11x."
-              : "Jawaban Anda belum tepat. 4x + 7x = (4 + 7)x = 11x.";
+              ? "Jawaban kamu benar! 4x + 7x = 11x."
+              : "Jawaban kamu belum tepat. 4x + 7x = (4 + 7)x = 11x.";
           } else if (questionId === 2) {
             text =
               userAnswer.includes("3x") && userAnswer.includes("12")
@@ -960,13 +965,13 @@
               ? "Benar! 7 GB pada bulan April."
               : "Perhatikan kembali diagram batang: cari 7 GB.";
           else if (questionId === 2)
-            text = `Jawaban Anda: ${userAnswer}. Koreksi: 1) Numerik 2) Kategorik 3) Kategorik 4) Numerik`;
+            text = `Jawaban kamu: ${userAnswer}. Koreksi: 1) Numerik 2) Kategorik 3) Kategorik 4) Numerik`;
           else if (questionId === 3)
             text = "Pastikan setiap kategori dihitung persentasenya dan proporsinya sesuai.";
         }
       }
 
-      const tp = document.createTextNode(text);
+      const tp = document.createTextNode(useKamuPronouns(text));
       p.appendChild(tp);
       feedbackDiv.appendChild(p);
     } catch (err) {
