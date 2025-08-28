@@ -75,6 +75,9 @@ body { font-family: "Rubik", sans-serif; background-color: #f0f0f0; }
 /* Ensure only skeleton shows during loading */
 #content-area.loading > *:not(.space-y-4) { display: none !important; }
 
+/* HTML: <img class="stamp" src="" alt=""> */
+.stamp { --r: 20px; height: 250px; aspect-ratio: 1.5; padding: var(--r); background: #b3b39c; -webkit-mask: radial-gradient(50% 50%,#0000 66%,#000 67%) round var(--r) var(--r)/calc(2*var(--r)) calc(2*var(--r)), conic-gradient(#000 0 0) content-box; mask: radial-gradient(50% 50%,#0000 66%,#000 67%) round var(--r) var(--r)/calc(2*var(--r)) calc(2*var(--r)), conic-gradient(#000 0 0) content-box; object-fit: cover; }
+
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .journey-step:not(:last-child):after { left: 15px; }
